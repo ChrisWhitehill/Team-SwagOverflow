@@ -13,7 +13,7 @@ class User(models.Model):
 class Team(models.Model):
     LEAGUES = [
         ('MLB', 'Major League Baseball'),
-        ('NBA', 'National Basketball League'),
+        ('NBA', 'National Basketball Association'),
         ('NFL', 'National Football League'),
         ('NHL', 'National Hockey League'),
     ]
