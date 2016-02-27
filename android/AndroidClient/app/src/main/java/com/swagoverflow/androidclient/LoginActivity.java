@@ -11,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
@@ -58,6 +60,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void attemptLogin() {
         apiCaller.obtainData(new GetUserRequest(2));
+        ScrollView loginView = (ScrollView) findViewById(R.id.login_form);
+        loginView.setVisibility(View.GONE);
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -77,6 +84,9 @@ public class LoginActivity extends AppCompatActivity {
         ((SwagApplication) getApplication()).setUser(response.getUser());
 
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 }

@@ -49,9 +49,14 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 // TODO make an animation
                 if (position == 0) {
-                    mFab.setVisibility(View.VISIBLE);
-                } else {
-                    mFab.setVisibility(View.GONE);
+                    mFab.show();
+                    setTitle("Favorites");
+                } else if (position == 1) {
+                    mFab.hide();
+                    setTitle("Events");
+                } else if (position == 2) {
+                    mFab.hide();
+                    setTitle("Account Settings");
                 }
             }
 
@@ -76,8 +81,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setTitle("Favorites");
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mViewPager.getCurrentItem() != 0) {
+            mViewPager.setCurrentItem(0);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -29,6 +29,15 @@
             android:name=".AddFavoriteActivity"
             android:label="@string/title_activity_add_favorite" >
         </activity>
+        <activity
+            android:name=".ViewFavoriteActivity"
+            android:label="@string/title_activity_view_favorite" >
+        </activity>
+        <activity
+            android:name=".WatchContentActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_watch_content" >
+        </activity>
     </application>
 
 </manifest>

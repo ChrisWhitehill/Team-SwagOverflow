@@ -31,4 +31,12 @@
         <item>NHL</item>
         <item>MLB</item>
     </string-array>
+    <string name="title_activity_view_favorite">ViewFavoriteActivity</string>
+    <string name="title_activity_watch_content">WatchContentActivity</string>
+
+    <string-array name="options">
+        <item>Email</item>
+        <item>Text</item>
+        <item>Push Notification</item>
+    </string-array>
 </resources>

@@ -22,6 +22,7 @@ import com.swagoverflow.androidclient.api.requests.DeleteFavoriteTeamRequest;
 import com.swagoverflow.androidclient.api.requests.GetTeamsRequest;
 import com.swagoverflow.androidclient.api.requests.PostFavoriteTeamRequest;
 import com.swagoverflow.androidclient.api.responses.GetTeamsResponse;
+import com.swagoverflow.androidclient.api.responses.TeamPostedResponse;
 import com.swagoverflow.androidclient.models.Team;
 import com.swagoverflow.androidclient.models.TeamFavorite;
 import com.swagoverflow.androidclient.models.User;
@@ -37,6 +38,8 @@ public class AddFavoriteTeamFragment extends Fragment {
     private List<Team> teams;
     private List<Team> filteredTeams;
     private IApiCaller apiCaller;
+    private long userId;
+    private boolean shouldDelete;
 
     public AddFavoriteTeamFragment() {
         // Required empty public constructor
@@ -77,15 +80,16 @@ public class AddFavoriteTeamFragment extends Fragment {
         teams.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final Team team = filteredTeams.get(i);
-                final User user = ((SwagApplication) getActivity().getApplication()).getUser();
+                Team team = filteredTeams.get(i);
+                User user = ((SwagApplication) getActivity().getApplication()).getUser();
+                userId = user.getId();
                 apiCaller.obtainData(new PostFavoriteTeamRequest(team.getId(), user.getId()));
                 CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
                 Snackbar.make(layout, "Favorite team added", Snackbar.LENGTH_SHORT)
                         .setAction("Undo", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                deleteFavoriteTeam(team.getId(), user.getId());
+                                shouldDelete = true;
                             }
                         })
                         .show();
@@ -93,8 +97,22 @@ public class AddFavoriteTeamFragment extends Fragment {
         });
     }
 
-    private void deleteFavoriteTeam(long teamId, long userId) {
-        apiCaller.obtainData(new DeleteFavoriteTeamRequest(teamId, userId));
+    @Subscribe
+    public void onPosted(TeamPostedResponse response) {
+        ((SwagApplication) getActivity().getApplication()).getUser().addFavoriteTeam(response.getFavoriteteams());
+
+        if (shouldDelete) {
+            apiCaller.obtainData(new DeleteFavoriteTeamRequest(userId, response.getFavoriteteams().getId()));
+            CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
+            Snackbar.make(layout, "Successfully deleted team", Snackbar.LENGTH_SHORT)
+                    .show();
+        }
+        shouldDelete = false;
+
+        Spinner spinner = (Spinner) getView().findViewById(R.id.teamSpinner);
+        int position = spinner.getSelectedItemPosition();
+        String[] options = getResources().getStringArray(R.array.leagues);
+        filterTeamsByLeague(options[position]);
     }
 
     @Override
@@ -131,7 +149,7 @@ public class AddFavoriteTeamFragment extends Fragment {
             for (Team t : teams) {
                 hasTeam = false;
                 for (TeamFavorite f : teamFavorites) {
-                    if (f.getTeam().getName().equals(t.getName())) {
+                    if (f != null && f.getTeam().getName().equals(t.getName())) {
                         hasTeam = true;
                         break;
                     }
@@ -145,7 +163,7 @@ public class AddFavoriteTeamFragment extends Fragment {
             for (Team t : teams) {
                 hasTeam = false;
                 for (TeamFavorite f : teamFavorites) {
-                    if (f.getTeam().getName().equals(t.getName())) {
+                    if (f != null && f.getTeam().getName().equals(t.getName())) {
                         hasTeam = true;
                         break;
                     }

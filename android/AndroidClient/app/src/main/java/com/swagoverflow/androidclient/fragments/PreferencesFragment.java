@@ -2,12 +2,9 @@ package com.swagoverflow.androidclient.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 import com.swagoverflow.androidclient.R;
@@ -17,6 +14,7 @@ import com.swagoverflow.androidclient.api.ApiCallerProvider;
 import com.swagoverflow.androidclient.api.IApiCaller;
 import com.swagoverflow.androidclient.api.requests.ObtainFavoritesRequest;
 import com.swagoverflow.androidclient.api.responses.ObtainFavoritesResult;
+import com.swagoverflow.androidclient.api.responses.ShowDeletedResponse;
 import com.swagoverflow.androidclient.models.User;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
@@ -26,6 +24,9 @@ public class PreferencesFragment extends Fragment {
     private static final String TAG = "PreferencesFragment";
 
     private IApiCaller apiCaller;
+    private PreferenceListAdapter adapter;
+    private int teamsCount;
+    private int showsCount;
 
     public PreferencesFragment() {
         // Required empty public constructor
@@ -56,22 +57,26 @@ public class PreferencesFragment extends Fragment {
     public void onResume() {
         super.onResume();
         apiCaller.registerObject(this);
+        User user = ((SwagApplication) getActivity().getApplication()).getUser();
+        apiCaller.obtainData(new ObtainFavoritesRequest(user.getId()));
+    }
+
+    @Subscribe
+    public void onDeleted(ShowDeletedResponse response) {
+        User user = ((SwagApplication) getActivity().getApplication()).getUser();
+        apiCaller.obtainData(new ObtainFavoritesRequest(user.getId()));
     }
 
     @Subscribe
     public void onFavoritesObtained(ObtainFavoritesResult result) {
         StickyListHeadersListView listView = (StickyListHeadersListView) getView().findViewById(R.id.preference_list);
-        listView.setAdapter(new PreferenceListAdapter(getActivity(), result.getTeams(), result.getShows()));
+        adapter = new PreferenceListAdapter(getActivity(), result.getTeams(), result.getShows(), apiCaller);
+        listView.setAdapter(adapter);
 
         User user = ((SwagApplication) getActivity().getApplication()).getUser();
         user.setFavoriteShows(result.getShows());
         user.setFavoriteTeams(result.getTeams());
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getActivity(), "Todo", Toast.LENGTH_SHORT).show();
-            }
-        });
+        teamsCount = result.getTeams().size();
+        showsCount = result.getShows().size();
     }
 }
