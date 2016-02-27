@@ -8,6 +8,7 @@ import java.util.Date;
 public class Game {
     private Date date;
     private String channel_number;
+    private String channel_name;
     private String video_url;
     private String thumbnail_url;
     private Team home_team;
@@ -18,7 +19,7 @@ public class Game {
     }
 
     public String getChannel() {
-        return channel_number;
+        return channel_name;
     }
 
     public String getVideoUrl() {
