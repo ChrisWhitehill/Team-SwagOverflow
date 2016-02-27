@@ -5,6 +5,18 @@ from rest_framework.viewsets import ViewSet, ModelViewSet
 from swag.serializers import *
 from swag.models import *
 from swag.renderers import WrappedJSONRenderer
+from twilio.rest import TwilioRestClient
+from django.conf import settings
+
+
+def send_sms(message, to):
+    client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID,
+                              settings.TWILIO_AUTH_TOKEN)
+    client.messages.create(
+        to_= to,
+        from_ = settings.TWILIO_DEFAULT_CALLERID,
+        body = message
+    )
 
 
 @api_view(['GET'])
@@ -82,7 +94,10 @@ class FavoriteTeamViewSet(ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             team = FavoriteTeam.objects.get(pk=serializer.data['id'])
+            user = User.objects.get(pk=request.data['user'])
             resp = FavoriteTeamSerializer(team)
+            message = "Thanks for subscribing to the " + team.team.name + "!"
+            send_sms(message, user.phone)
             return Response(resp.data, status=201)
         return Response(serializer.errors, status=400)
 
@@ -101,8 +116,12 @@ class FavoriteShowViewSet(ModelViewSet):
         serializer = FavoriteShowPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            team = FavoriteShow.objects.get(pk=serializer.data['id'])
-            resp = FavoriteShowSerializer(team)
+            show = FavoriteShow.objects.get(pk=serializer.data['id'])
+            user = User.objects.get(pk=request.data['user'])
+            resp = FavoriteShowSerializer(show)
+            episodes = show.show.episodes.all()
+            message = "Thanks for subscribing to " + show.show.name + "!"
+            send_sms(message, user.phone)
             return Response(resp.data, status=201)
         return Response(serializer.errors, status=400)
 

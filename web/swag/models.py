@@ -71,7 +71,7 @@ class Game(Event):
 
 
 class Episode(Event):
-    show = models.ForeignKey(Show, related_name='events')
+    show = models.ForeignKey(Show, related_name='episodes')
 
     def __str__(self):
         return '{0} at {1}'.format(self.show, self.date)
