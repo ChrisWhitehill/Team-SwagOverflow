@@ -59,6 +59,15 @@ class FavoriteTeamViewSet(ModelViewSet):
         serializer = FavoriteTeamSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def create(self, request, user_pk=None):
+        serializer = FavoriteTeamPostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            team = FavoriteTeam.objects.get(pk=serializer.data['id'])
+            resp = FavoriteTeamSerializer(team)
+            return Response(resp.data, status=201)
+        return Response(serializer.errors, status=400)
+
 
 class FavoriteShowViewSet(ModelViewSet):
     queryset = FavoriteShow.objects.all()
@@ -69,6 +78,16 @@ class FavoriteShowViewSet(ModelViewSet):
         queryset = FavoriteShow.objects.filter(user=user_pk)
         serializer = FavoriteShowSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def create(self, request, user_pk=None):
+        serializer = FavoriteTeamPostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            team = FavoriteShow.objects.get(pk=serializer.data['id'])
+            resp = FavoriteShowSerializer(team)
+            return Response(resp.data, status=201)
+        return Response(serializer.errors, status=400)
+
 
 
 class GameViewSet(ModelViewSet):

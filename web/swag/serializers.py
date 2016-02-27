@@ -24,6 +24,14 @@ class ShowSerializer(ModelSerializer):
 
 
 class FavoriteTeamSerializer(ModelSerializer):
+
+    class Meta:
+        model = FavoriteTeam
+        resource_name = 'favoriteteams'
+        depth = 2
+
+
+class FavoriteTeamPostSerializer(ModelSerializer):
     user = PrimaryKeyRelatedField(queryset=User.objects.all())
     team = PrimaryKeyRelatedField(queryset=Team.objects.all())
 
@@ -33,6 +41,14 @@ class FavoriteTeamSerializer(ModelSerializer):
 
 
 class FavoriteShowSerializer(ModelSerializer):
+
+    class Meta:
+        model = FavoriteShow
+        resource_name = 'favoriteshows'
+        depth = 2
+
+
+class FavoriteShowPostSerializer(ModelSerializer):
     user = PrimaryKeyRelatedField(queryset=User.objects.all())
     show = PrimaryKeyRelatedField(queryset=Show.objects.all())
 
