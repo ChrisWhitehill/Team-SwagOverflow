@@ -10,4 +10,10 @@ import UIKit
 
 class EventsViewController: UIViewController {
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setRightBarButton(nil)
+        setNavTitle("My Events")
+    }
 }

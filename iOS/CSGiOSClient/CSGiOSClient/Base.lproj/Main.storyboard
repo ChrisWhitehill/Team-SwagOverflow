@@ -21,7 +21,7 @@
                                 <rect key="frame" x="281" y="285" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="uQa-hf-Bai" kind="show" id="UG4-ye-fTh"/>
+                                    <segue destination="uQa-hf-Bai" kind="show" identifier="loginSegue" id="UG4-ye-fTh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,21 +47,9 @@
                     <view key="view" contentMode="scaleToFill" id="x6g-Zr-s9m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRp-EQ-5X3">
-                                <rect key="frame" x="274" y="289" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GRp-EQ-5X3" firstAttribute="centerX" secondItem="x6g-Zr-s9m" secondAttribute="centerX" id="40L-qi-GbN"/>
-                            <constraint firstItem="GRp-EQ-5X3" firstAttribute="centerY" secondItem="x6g-Zr-s9m" secondAttribute="centerY" id="j2n-s6-mJQ"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" id="zA3-vl-0vB"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="ic_action_television" id="zA3-vl-0vB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCv-pt-Tkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,21 +66,9 @@
                     <view key="view" contentMode="scaleToFill" id="pOE-FS-oTq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1b-YU-WXn">
-                                <rect key="frame" x="268" y="289" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="k1b-YU-WXn" firstAttribute="centerY" secondItem="pOE-FS-oTq" secondAttribute="centerY" id="HMS-fi-id2"/>
-                            <constraint firstItem="k1b-YU-WXn" firstAttribute="centerX" secondItem="pOE-FS-oTq" secondAttribute="centerX" id="TrK-c9-GkR"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="1x7-FC-bBw"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="ic_action_account" id="1x7-FC-bBw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="379-fj-VSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,21 +85,11 @@
                     <view key="view" contentMode="scaleToFill" id="I2f-Rg-FAB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferences" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKJ-iy-BJP">
-                                <rect key="frame" x="254" y="289" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YKJ-iy-BJP" firstAttribute="centerX" secondItem="I2f-Rg-FAB" secondAttribute="centerX" id="Wsp-ho-Kyi"/>
-                            <constraint firstItem="YKJ-iy-BJP" firstAttribute="centerY" secondItem="I2f-Rg-FAB" secondAttribute="centerY" id="Zns-Ba-Brf"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Preferences" id="sQW-Vc-6E0"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="ic_action_fingerprint" id="sQW-Vc-6E0"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy1-wp-nFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,7 +116,7 @@
             <objects>
                 <tabBarController id="lOE-xA-S8i" customClass="TabBarController" customModule="CSGiOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="DmP-TP-sPR">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="cpb-YU-Se9">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="cpb-YU-Se9">
                             <connections>
                                 <action selector="logOutTapped" destination="lOE-xA-S8i" id="yiB-L3-Y4R"/>
                             </connections>
@@ -172,4 +138,9 @@
             <point key="canvasLocation" x="1058" y="402"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_action_account" width="48" height="48"/>
+        <image name="ic_action_fingerprint" width="48" height="48"/>
+        <image name="ic_action_television" width="48" height="48"/>
+    </resources>
 </document>
