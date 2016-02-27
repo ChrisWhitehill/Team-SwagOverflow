@@ -45,7 +45,7 @@ class FavoriteShow(models.Model):
     show = models.ForeignKey(Show)
 
     def __str__(self):
-        return str(self.user) + ' | ' + str(self.team)
+        return str(self.user) + ' | ' + str(self.show)
 
 
 class Event(models.Model):

@@ -8,6 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Team)
+admin.site.register(Show)
 admin.site.register(TeamEvent)
 admin.site.register(ShowEvent)
 admin.site.register(FavoriteTeam)
