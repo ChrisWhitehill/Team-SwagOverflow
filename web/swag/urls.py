@@ -22,4 +22,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^', include(user_shows_router.urls)),
     url(r'^', include(user_teams_router.urls)),
+    url(r'^leagues', views.league_list),
+    url(r'^league/(?P<key>.*)', views.league_teams),
+    url(r'^user/(?P<user_pk>.*)/favorites', views.user_favorites),
 ]

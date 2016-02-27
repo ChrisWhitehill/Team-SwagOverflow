@@ -36,6 +36,7 @@ class Show(models.Model):
 class FavoriteTeam(models.Model):
     user = models.ForeignKey(User)
     team = models.ForeignKey(Team)
+    notifications = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.user) + ' | ' + str(self.team)
@@ -44,6 +45,7 @@ class FavoriteTeam(models.Model):
 class FavoriteShow(models.Model):
     user = models.ForeignKey(User)
     show = models.ForeignKey(Show)
+    notifications = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.user) + ' | ' + str(self.show)
