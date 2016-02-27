@@ -10,4 +10,10 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setRightBarButton(nil)
+        setNavTitle("Account")
+    }
 }
