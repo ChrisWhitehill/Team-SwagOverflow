@@ -1,8 +1,34 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.viewsets import ViewSet
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
 from swag.serializers import *
 from swag.models import *
+
+
+@api_view(['GET'])
+def league_list(request):
+    data = []
+    for key, name in Team.LEAGUES:
+        data.append({'key': key, 'name': name})
+    return Response({"leagues": data})
+
+
+@api_view(['GET'])
+def league_teams(request, key=None):
+    queryset = Team.objects.filter(league=key.upper())
+    serializer = TeamSerializer(queryset, many=True)
+    return Response({'teams': serializer.data})
+
+
+@api_view(['GET'])
+def user_favorites(request, user_pk=None):
+    teams_query = FavoriteTeam.objects.filter(user=user_pk)
+    shows_query = FavoriteShow.objects.filter(user=user_pk)
+    teams = FavoriteTeamSerializer(teams_query, many=True)
+    shows = FavoriteTeamSerializer(shows_query, many=True)
+    data = {'teams': teams.data, 'shows': shows.data}
+    return Response(data)
 
 
 class UserViewSet(ViewSet):
