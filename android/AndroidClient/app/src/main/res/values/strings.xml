@@ -15,4 +15,19 @@
 
     <!-- Strings for PreferencesFragment -->
     <string name="teams">Teams</string>
+    <string name="team_section_title">Teams</string>
+    <string name="show_section_title">Shows</string>
+
+    <string name="search">Search</string>
+    <string name="results">Results</string>
+    <string name="title_activity_add_favorite">Add a Favorite</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string-array name="leagues">
+        <item>NBA</item>
+        <item>NFL</item>
+        <item>NHL</item>
+        <item>MLB</item>
+    </string-array>
 </resources>
