@@ -25,6 +25,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string-array name="leagues">
+        <item>None</item>
         <item>NBA</item>
         <item>NFL</item>
         <item>NHL</item>

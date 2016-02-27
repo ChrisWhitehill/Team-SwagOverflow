@@ -1,6 +1,6 @@
 package com.swagoverflow.androidclient.adapters;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +12,19 @@ import com.squareup.picasso.Picasso;
 import com.swagoverflow.androidclient.R;
 import com.swagoverflow.androidclient.models.Show;
 import com.swagoverflow.androidclient.models.Team;
+import com.swagoverflow.androidclient.utilities.Utility;
 
 import java.util.List;
 
-/**
- * Created by Mike on 2/27/2016.
- */
 public class AddOptionAdapter extends ArrayAdapter<Team> {
     private List<Show> shows;
     private List<Team> teams;
-    private Context context;
+    private Activity activity;
 
-    public AddOptionAdapter(Context context, int resource, List<Team> teams, List<Show> shows) {
+    public AddOptionAdapter(Activity context, int resource, List<Team> teams, List<Show> shows) {
         super(context, resource);
 
-        this.context = context;
+        this.activity = context;
         this.shows = shows;
         this.teams = teams;
     }
@@ -47,6 +45,8 @@ public class AddOptionAdapter extends ArrayAdapter<Team> {
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(R.layout.layout_preference_item, parent, false);
         }
+
+        view.setMinimumHeight(Utility.convertDpToPx(activity.getWindowManager().getDefaultDisplay(), 50));
 
         TextView name = (TextView) view.findViewById(R.id.name);
         ImageView logo = (ImageView) view.findViewById(R.id.logo);

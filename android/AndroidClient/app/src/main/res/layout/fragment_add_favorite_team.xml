@@ -5,12 +5,29 @@
     android:orientation="vertical"
     tools:context="com.swagoverflow.androidclient.fragments.AddFavoriteTeamFragment">
 
-    <Spinner
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:id="@+id/teamSpinner" />
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/darker_gray"
+            android:layout_gravity="center_vertical"
+            android:text="Select a league"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/teamSpinner" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

@@ -13,11 +13,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+import com.swagoverflow.androidclient.api.ApiCallerProvider;
+import com.swagoverflow.androidclient.api.IApiCaller;
+import com.swagoverflow.androidclient.api.requests.GetUserRequest;
+import com.swagoverflow.androidclient.api.responses.GetUserResponse;
+
 public class LoginActivity extends AppCompatActivity {
 
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private IApiCaller apiCaller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        apiCaller = ApiCallerProvider.getInstance();
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -48,6 +57,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void attemptLogin() {
+        apiCaller.obtainData(new GetUserRequest(2));
+    }
+
+    @Override
+    protected void onPause() {
+        apiCaller.unregisterObject(this);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        apiCaller.registerObject(this);
+    }
+
+    @Subscribe
+    public void onUserObtained(GetUserResponse response) {
+        ((SwagApplication) getApplication()).setUser(response.getUser());
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
