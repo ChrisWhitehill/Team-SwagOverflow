@@ -274,8 +274,28 @@
                     <view key="view" contentMode="scaleToFill" id="U9m-Nw-IXb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-UE-WnH">
+                                <rect key="frame" x="56" y="50" width="163" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNn-MG-4jh">
+                                <rect key="frame" x="501" y="45" width="51" height="31"/>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Ms-UE-WnH" firstAttribute="leading" secondItem="U9m-Nw-IXb" secondAttribute="leading" constant="56" id="9C7-D8-ekX"/>
+                            <constraint firstItem="5Ms-UE-WnH" firstAttribute="top" secondItem="uSX-J5-UsI" secondAttribute="bottom" constant="30" id="Cha-Cg-TTE"/>
+                            <constraint firstAttribute="trailing" secondItem="YNn-MG-4jh" secondAttribute="trailing" constant="50" id="tQv-l6-RZO"/>
+                            <constraint firstItem="YNn-MG-4jh" firstAttribute="top" secondItem="uSX-J5-UsI" secondAttribute="bottom" constant="25" id="tzU-0z-Qd0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="switcher" destination="YNn-MG-4jh" id="AwO-EW-Ha2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRW-Al-4Yd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,29 +379,39 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OXv-xS-mwA">
-                                <rect key="frame" x="0.0" y="175" width="600" height="425"/>
+                                <rect key="frame" x="0.0" y="175" width="600" height="365"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zbD-hm-AVI" id="Ekn-Ll-nFx"/>
                                     <outlet property="delegate" destination="zbD-hm-AVI" id="y2O-Gh-41M"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGG-BR-DLr">
+                                <rect key="frame" x="257" y="555" width="86" height="30"/>
+                                <state key="normal" title="Add Favorite"/>
+                                <connections>
+                                    <action selector="addFavoriteTapped" destination="zbD-hm-AVI" eventType="touchUpInside" id="gwy-JA-X8y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TeY-j9-VNf" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" constant="30" id="9Hl-dX-k7X"/>
                             <constraint firstItem="OXv-xS-mwA" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" id="Cye-sd-8hk"/>
-                            <constraint firstItem="3QF-gF-2f3" firstAttribute="top" secondItem="OXv-xS-mwA" secondAttribute="bottom" id="Ggk-40-aH4"/>
+                            <constraint firstItem="3QF-gF-2f3" firstAttribute="top" secondItem="OXv-xS-mwA" secondAttribute="bottom" constant="60" id="Ggk-40-aH4"/>
                             <constraint firstAttribute="trailing" secondItem="OXv-xS-mwA" secondAttribute="trailing" id="IS0-qB-htI"/>
+                            <constraint firstItem="bGG-BR-DLr" firstAttribute="centerX" secondItem="77G-Rc-iUO" secondAttribute="centerX" id="MrZ-SR-EyJ"/>
                             <constraint firstAttribute="trailing" secondItem="TeY-j9-VNf" secondAttribute="trailing" constant="30" id="N51-fm-l7w"/>
                             <constraint firstItem="OXv-xS-mwA" firstAttribute="top" secondItem="fGx-ec-7SV" secondAttribute="bottom" constant="20" id="V0B-3n-I2R"/>
                             <constraint firstItem="fGx-ec-7SV" firstAttribute="top" secondItem="TeY-j9-VNf" secondAttribute="bottom" constant="30" id="bqQ-Ld-Vbt"/>
                             <constraint firstItem="TeY-j9-VNf" firstAttribute="top" secondItem="l90-Y2-vLL" secondAttribute="bottom" constant="15" id="cmm-Kh-2sX"/>
+                            <constraint firstItem="3QF-gF-2f3" firstAttribute="top" secondItem="bGG-BR-DLr" secondAttribute="bottom" constant="15" id="kM8-wc-NiX"/>
                             <constraint firstAttribute="trailing" secondItem="fGx-ec-7SV" secondAttribute="trailing" id="oR5-wv-x0Z"/>
                             <constraint firstItem="fGx-ec-7SV" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" id="s5d-Fu-qkY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addFavoriteButton" destination="bGG-BR-DLr" id="7Tm-W6-BO1"/>
                         <outlet property="leagueLabel" destination="7ty-CF-HUp" id="mWg-Ps-8SG"/>
                         <outlet property="leagueView" destination="xsJ-YB-yVa" id="PRt-9d-2I3"/>
                         <outlet property="segmentedControl" destination="TeY-j9-VNf" id="5ok-W9-mKa"/>

@@ -17,6 +17,7 @@ class AddFavoriteViewController: UIViewController {
     @IBOutlet weak var leagueLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addFavoriteButton: UIButton!
     
     var allTeams = [Team]()
     var allShows = [Show]()
@@ -25,6 +26,8 @@ class AddFavoriteViewController: UIViewController {
     
     var activeUser: User!
     var itemService: ItemService!
+    
+    var selectedItem: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,12 +84,18 @@ class AddFavoriteViewController: UIViewController {
                 }
             }
         }, error: nil)
+        
+        addFavoriteButton.enabled = false
+        
+        showSearchField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         showSearchField.hidden = segmentedControl.selectedSegmentIndex == 0
         leagueView.hidden = segmentedControl.selectedSegmentIndex != 0
         
+        selectedItem = nil
+        addFavoriteButton.enabled = false
         itemsToDisplay = segmentedControl.selectedSegmentIndex == 0 ? allTeams : allShows
         tableView.reloadData()
     }
@@ -102,6 +111,8 @@ class AddFavoriteViewController: UIViewController {
             alert.addAction(UIAlertAction(title: leagueName, style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.leagueLabel.text = leagueName
+                    self.selectedItem = nil
+                    self.addFavoriteButton.enabled = false
                     
                     self.itemsToDisplay = self.allTeams.filter { item in
                         return item.league == leagueName
@@ -113,6 +124,23 @@ class AddFavoriteViewController: UIViewController {
         }
         
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func addFavoriteTapped() {
+        FavoriteService().postFavorite(activeUser.id!, itemId: itemsToDisplay[selectedItem!.row].id!, isTeam: segmentedControl.selectedSegmentIndex == 0)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldDidChange(sender: AnyObject) {
+        if showSearchField.text! == "" {
+            itemsToDisplay = allShows
+        } else {
+            itemsToDisplay = allShows.filter({ show in
+                return show.name!.containsString(showSearchField.text!)
+            })
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -127,6 +155,21 @@ extension AddFavoriteViewController: UITableViewDataSource {
         
         cell.textLabel?.text = itemsToDisplay[indexPath.row].name
         
+        if selectedItem != nil && indexPath == selectedItem {
+            cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
+        }
+        
         return cell
+    }
+}
+
+extension AddFavoriteViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedItem = indexPath
+        tableView.reloadData()
+        addFavoriteButton.enabled = true
     }
 }

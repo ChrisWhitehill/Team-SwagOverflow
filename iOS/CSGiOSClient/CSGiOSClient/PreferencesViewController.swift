@@ -23,12 +23,6 @@ class PreferencesViewController: UIViewController {
         
         if let user = userService.getActiveUser() {
             activeUser = user
-            userService.getFavoritesForUser(user, success: { dict in
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.activeUser.parseFavorites(dict)
-                    self.tableView.reloadData()
-                }
-            }, error: nil)
         }
     }
     
@@ -38,6 +32,13 @@ class PreferencesViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addPrefTapped"))
         setRightBarButton(addButton)
         setNavTitle("Favorites")
+        
+        userService.getFavoritesForUser(activeUser, success: { dict in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.activeUser.parseFavorites(dict)
+                self.tableView.reloadData()
+            }
+        }, error: nil)
     }
     
     func addPrefTapped() {
@@ -70,7 +71,7 @@ extension PreferencesViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
-        cell.displayForItem(favoriteForIndexPath(indexPath).item!)
+        cell.displayForFavorite(favoriteForIndexPath(indexPath))
         return cell
     }
 }
