@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     'drf_generators',
     'django_extensions',
     'swag',
-    'client',
 ]
 
 MIDDLEWARE_CLASSES = [
