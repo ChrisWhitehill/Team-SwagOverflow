@@ -3,17 +3,15 @@ package com.swagoverflow.androidclient.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.otto.Bus;
+import com.swagoverflow.androidclient.api.services.RequestService;
 
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
-/**
- * An example of how to implement IApiCaller
- * This example used Otto for a pub/sub event system
- */
 public class ApiCaller implements IApiCaller {
     private Bus mBus;
     private RestApi mApi;
+    private RequestService mRequestService;
 
     ApiCaller() {
         mBus = BusProvider.getInstance();
@@ -22,12 +20,15 @@ public class ApiCaller implements IApiCaller {
                 .create();
 
         RestAdapter adapter = new RestAdapter.Builder()
-                .setEndpoint("https://example.com")
+                .setEndpoint("http://swagoverflow.brobin.me/api")
                 .setConverter(new GsonConverter(gson))
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
 
         mApi = adapter.create(RestApi.class);
+
+        mRequestService = new RequestService(mBus, mApi);
+        registerObject(mRequestService);
     }
 
     @Override
@@ -38,11 +39,15 @@ public class ApiCaller implements IApiCaller {
 
     @Override
     public void registerObject(Object object) {
-        mBus.register(object);
+        try {
+            mBus.register(object);
+        } catch (Exception e) { }
     }
 
     @Override
     public void unregisterObject(Object object) {
-        mBus.unregister(object);
+        try {
+            mBus.unregister(object);
+        } catch (Exception e) { }
     }
 }
