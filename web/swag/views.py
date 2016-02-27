@@ -142,8 +142,8 @@ class FavoriteTeamViewSet(ViewSet):
 
     def retrieve(self, request, pk=None, domain_pk=None):
         queryset = FavoriteTeam.objects.filter(user=user_pk)
-        item = get_object_or_404(queryset, pk=pk).team
-        serializer = TeamSerializer(item)
+        item = get_object_or_404(queryset, pk=pk)
+        serializer = FavoriteTeamSerializer(item)
         return Response(serializer.data)
 
     def update(self, request, pk=None):
@@ -183,8 +183,8 @@ class FavoriteShowViewSet(ViewSet):
 
     def retrieve(self, request, pk=None, user_pk=None):
         queryset = FavoriteShow.objects.filter(user=user_pk)
-        item = get_object_or_404(queryset, pk=pk).show
-        serializer = ShowSerializer(item)
+        item = get_object_or_404(queryset, pk=pk)
+        serializer = FavoriteShowSerializer(item)
         return Response(serializer.data)
 
     def update(self, request, pk=None):
@@ -214,37 +214,11 @@ class TeamEventViewSet(ViewSet):
         serializer = TeamEventSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request):
-        serializer = TeamEventSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
     def retrieve(self, request, pk=None):
         queryset = TeamEvent.objects.all()
         item = get_object_or_404(queryset, pk=pk)
         serializer = TeamEventSerializer(item)
         return Response(serializer.data)
-
-    def update(self, request, pk=None):
-        try:
-            item = TeamEvent.objects.get(pk=pk)
-        except TeamEvent.DoesNotExist:
-            return Response(status=404)
-        serializer = TeamEventSerializer(item, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=400)
-
-    def destroy(self, request, pk=None):
-        try:
-            item = TeamEvent.objects.get(pk=pk)
-        except TeamEvent.DoesNotExist:
-            return Response(status=404)
-        item.delete()
-        return Response(status=204)
 
 
 class ShowEventViewSet(ViewSet):
@@ -254,34 +228,8 @@ class ShowEventViewSet(ViewSet):
         serializer = ShowEventSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request):
-        serializer = ShowEventSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
     def retrieve(self, request, pk=None):
         queryset = ShowEvent.objects.all()
         item = get_object_or_404(queryset, pk=pk)
         serializer = ShowEventSerializer(item)
         return Response(serializer.data)
-
-    def update(self, request, pk=None):
-        try:
-            item = ShowEvent.objects.get(pk=pk)
-        except ShowEvent.DoesNotExist:
-            return Response(status=404)
-        serializer = ShowEventSerializer(item, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=400)
-
-    def destroy(self, request, pk=None):
-        try:
-            item = ShowEvent.objects.get(pk=pk)
-        except ShowEvent.DoesNotExist:
-            return Response(status=404)
-        item.delete()
-        return Response(status=204)
