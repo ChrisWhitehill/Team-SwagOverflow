@@ -12,6 +12,8 @@ class PreferencesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var loadingThrobberView: UIView!
+    
     let sectionTitles = ["Teams", "TV Shows"]
     var userService: UserService!
     var favoriteService: FavoriteService!
@@ -23,6 +25,8 @@ class PreferencesViewController: UIViewController {
         userService = UserService()
         favoriteService = FavoriteService()
         
+        loadingThrobberView.layer.cornerRadius = 10.0
+        
         if let user = userService.getActiveUser() {
             activeUser = user
         }
@@ -30,6 +34,7 @@ class PreferencesViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        loadingThrobberView.hidden = true
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addPrefTapped"))
         setRightBarButton(addButton)
@@ -38,12 +43,14 @@ class PreferencesViewController: UIViewController {
     }
     
     func reloadPreferences() {
+        loadingThrobberView.hidden = false
         activeUser.teamFavorites = []
         activeUser.showFavorites = []
         userService.getFavoritesForUser(activeUser, success: { dict in
             dispatch_async(dispatch_get_main_queue()) {
                 self.activeUser.parseFavorites(dict)
                 self.tableView.reloadData()
+                self.loadingThrobberView.hidden = true
             }
         }, error: nil)
     }

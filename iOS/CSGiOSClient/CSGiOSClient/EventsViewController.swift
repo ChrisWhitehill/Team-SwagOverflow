@@ -14,6 +14,8 @@ class EventsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var loadingThrobberView: UIView!
+    
     let sectionTitles = ["Games", "Episodes"]
     
     var userService: UserService!
@@ -22,18 +24,32 @@ class EventsViewController: UIViewController {
     var games = [Game]()
     var episodes = [Episode]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        userService = UserService()
+        activeUser = userService.getActiveUser()
+        
+        loadingThrobberView.hidden = true
+        loadingThrobberView.layer.cornerRadius = 10.0
+        reloadEvents()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         setRightBarButton(nil)
         setNavTitle("Events")
         
-        userService = UserService()
-        activeUser = userService.getActiveUser()
-        reloadEvents()
+        if loadingThrobberView.hidden {
+            loadingThrobberView.hidden = false
+            reloadEvents()
+        }
     }
     
     func reloadEvents() {
+        loadingThrobberView.hidden = false
+        
         games = []
         episodes = []
         
@@ -50,8 +66,8 @@ class EventsViewController: UIViewController {
                     game.channelNumber = gameDict["channel_number"] as? Int
                     game.date = dateFormatter.dateFromString(gameDict["date"] as! String)
                     
-                    game.thumbnailUrl = "https://bloximages.chicago2.vip.townnews.com/journalstar.com/content/tncms/assets/v3/editorial/a/16/a16b74c9-354b-5501-a86b-4665352346ca/563ed5aac990d.image.jpg?resize=100%2C100"
-                    game.videoUrl = "https://0.s3.envato.com/h264-video-previews/80fad324-9db4-11e3-bf3d-0050569255a8/490527.mp4"
+                    game.thumbnailUrl = gameDict["thumbnail_url"] as? String
+                    game.videoUrl = gameDict["video_url"] as? String
                     
                     if let teamDict = gameDict["away_team"] as? [String: AnyObject] {
                         let team = Team()
@@ -88,8 +104,8 @@ class EventsViewController: UIViewController {
                     ep.channelNumber = epiDict["channel_number"] as? Int
                     ep.date = dateFormatter.dateFromString(epiDict["date"] as! String)
                     
-                    ep.thumbnailUrl = "https://bloximages.chicago2.vip.townnews.com/journalstar.com/content/tncms/assets/v3/editorial/a/16/a16b74c9-354b-5501-a86b-4665352346ca/563ed5aac990d.image.jpg?resize=100%2C100"
-                    ep.videoUrl = "https://0.s3.envato.com/h264-video-previews/80fad324-9db4-11e3-bf3d-0050569255a8/490527.mp4"
+                    ep.thumbnailUrl = epiDict["thumbnail_url"] as? String
+                    ep.videoUrl = epiDict["video_url"] as? String
                     
                     if let showDict = epiDict["show"] as? [String: AnyObject] {
                         let show = Show()
@@ -107,6 +123,7 @@ class EventsViewController: UIViewController {
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
+                self.loadingThrobberView.hidden = true
             }
         }, error: nil)
     }
@@ -142,6 +159,8 @@ extension EventsViewController: UITableViewDataSource {
 extension EventsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let event = getEventForIndexPath(indexPath)
         let url = NSURL(string: event.videoUrl!)!
         
