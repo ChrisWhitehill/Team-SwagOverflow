@@ -34,13 +34,13 @@ class FavoriteShowSerializer(ModelSerializer):
         depth = 2
 
 
-class TeamEventSerializer(ModelSerializer):
+class GameSerializer(ModelSerializer):
 
     class Meta:
-        model = TeamEvent
+        model = Game
 
 
-class ShowEventSerializer(ModelSerializer):
+class EpisodeSerializer(ModelSerializer):
 
     class Meta:
-        model = ShowEvent
+        model = Episode

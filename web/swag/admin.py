@@ -16,11 +16,11 @@ class ShowAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'name']
 
 
-class TeamEventAdmin(admin.ModelAdmin):
+class GameAdmin(admin.ModelAdmin):
     list_display = ['id', 'away_team', 'home_team', 'date', 'channel_name', 'channel_number']
 
 
-class ShowEventAdmin(admin.ModelAdmin):
+class EpisodeAdmin(admin.ModelAdmin):
     list_display = ['id', 'show', 'date', 'channel_name', 'channel_number']
 
 
@@ -35,7 +35,7 @@ class FavoriteShowAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Show, ShowAdmin)
-admin.site.register(TeamEvent, TeamEventAdmin)
-admin.site.register(ShowEvent, ShowEventAdmin)
+admin.site.register(Game, GameAdmin)
+admin.site.register(Episode, EpisodeAdmin)
 admin.site.register(FavoriteTeam, FavoriteTeamAdmin)
 admin.site.register(FavoriteShow, FavoriteShowAdmin)

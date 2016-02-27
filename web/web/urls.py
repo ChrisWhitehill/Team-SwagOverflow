@@ -21,6 +21,7 @@ from client import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('swag.urls')),
-    url(r'^api/', include('swag.urls')),
+    url(r'^teams', views.teams),
+    url(r'^shows', views.shows),
     url(r'^', views.index),
 ]
