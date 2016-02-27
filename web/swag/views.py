@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ModelViewSet
 from swag.serializers import *
 from swag.models import *
+from swag.renderers import WrappedJSONRenderer
 
 
 @api_view(['GET'])
@@ -34,32 +35,39 @@ def user_favorites(request, user_pk=None):
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 class TeamViewSet(ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 
 class ShowViewSet(ViewSet):
     queryset = Show.objects.all()
     serializer_class = ShowSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 
 class FavoriteTeamViewSet(ModelViewSet):
     queryset = FavoriteTeam.objects.all()
     serializer_class = FavoriteTeamSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 
 class FavoriteShowViewSet(ModelViewSet):
     queryset = FavoriteShow.objects.all()
     serializer_class = FavoriteShowSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 
 class GameViewSet(ModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
+    renderer_classes = [WrappedJSONRenderer]
 
 
 class EpisodeViewSet(ModelViewSet):
     queryset = Episode.objects.all()
     serializer_class = EpisodeSerializer
+    renderer_classes = [WrappedJSONRenderer]

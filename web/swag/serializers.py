@@ -28,6 +28,7 @@ class FavoriteTeamSerializer(ModelSerializer):
     class Meta:
         model = FavoriteTeam
         resource_name = 'favoriteteams'
+        depth = 2
 
 
 class FavoriteShowSerializer(ModelSerializer):
@@ -35,6 +36,7 @@ class FavoriteShowSerializer(ModelSerializer):
     class Meta:
         model = FavoriteShow
         resource_name = 'favoriteshows'
+        depth = 2
 
 
 class GameSerializer(ModelSerializer):
@@ -42,6 +44,7 @@ class GameSerializer(ModelSerializer):
     class Meta:
         model = Game
         resource_name = 'games'
+        depth = 2
 
 
 class EpisodeSerializer(ModelSerializer):
@@ -49,3 +52,4 @@ class EpisodeSerializer(ModelSerializer):
     class Meta:
         model = Episode
         resource_name = 'episodes'
+        depth = 2

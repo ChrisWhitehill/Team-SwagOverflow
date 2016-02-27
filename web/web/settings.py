@@ -78,6 +78,6 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
-        'swag.renderers.WrappedJSONRenderer',
+        'rest_framework.renderers.JSONRenderer',
     )
 }
