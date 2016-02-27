@@ -9,6 +9,15 @@
         android:scaleType="centerCrop"
         android:src="@drawable/log_in"/>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_marginTop="160dp"
+        android:id="@+id/progress"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"

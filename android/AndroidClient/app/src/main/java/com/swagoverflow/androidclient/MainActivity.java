@@ -84,6 +84,14 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Favorites");
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mViewPager.getCurrentItem() != 0) {
+            mViewPager.setCurrentItem(0);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
