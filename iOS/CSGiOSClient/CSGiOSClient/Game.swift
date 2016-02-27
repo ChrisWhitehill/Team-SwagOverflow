@@ -12,4 +12,5 @@ class Game: Event {
     
     var homeTeam: Team?
     var awayTeam: Team?
+    
 }
