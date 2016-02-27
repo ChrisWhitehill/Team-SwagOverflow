@@ -26,7 +26,7 @@ def user_favorites(request, user_pk=None):
     teams_query = FavoriteTeam.objects.filter(user=user_pk)
     shows_query = FavoriteShow.objects.filter(user=user_pk)
     teams = FavoriteTeamSerializer(teams_query, many=True)
-    shows = FavoriteTeamSerializer(shows_query, many=True)
+    shows = FavoriteShowSerializer(shows_query, many=True)
     data = {'teams': teams.data, 'shows': shows.data}
     return Response(data)
 
