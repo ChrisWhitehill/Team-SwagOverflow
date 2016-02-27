@@ -31,4 +31,5 @@
         <item>NHL</item>
         <item>MLB</item>
     </string-array>
+    <string name="title_activity_view_favorite">ViewFavoriteActivity</string>
 </resources>

@@ -45,4 +45,12 @@ public class User {
     public void setFavoriteTeams(List<TeamFavorite> favoriteTeams) {
         this.favoriteTeams = favoriteTeams;
     }
+
+    public void addFavoriteTeam(TeamFavorite favorite) {
+        this.favoriteTeams.add(favorite);
+    }
+
+    public void addFavoriteShow(ShowFavorite favorite) {
+        this.favoriteShows.add(favorite);
+    }
 }

@@ -7,6 +7,7 @@ public class Constants {
     private Constants() { }
 
     public static final String IS_TEAM = "isTeam";
-    public static final String TEAM = "team";
-    public static final String SHOW = "show";
+    public static final String NAME = "name";
+    public static final String ID = "id";
+    public static final String NOTIFICATIONS = "notifications";
 }

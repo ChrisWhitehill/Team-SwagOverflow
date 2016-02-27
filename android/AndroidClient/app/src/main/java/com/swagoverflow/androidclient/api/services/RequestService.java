@@ -5,18 +5,24 @@ import android.util.Log;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import com.swagoverflow.androidclient.api.RestApi;
+import com.swagoverflow.androidclient.api.requests.DeleteFavoriteShowRequest;
 import com.swagoverflow.androidclient.api.requests.DeleteFavoriteTeamRequest;
 import com.swagoverflow.androidclient.api.requests.GetShowForUserRequest;
+import com.swagoverflow.androidclient.api.requests.GetShowsRequest;
 import com.swagoverflow.androidclient.api.requests.GetTeamForUserRequest;
 import com.swagoverflow.androidclient.api.requests.GetTeamsRequest;
 import com.swagoverflow.androidclient.api.requests.GetUserRequest;
 import com.swagoverflow.androidclient.api.requests.ObtainFavoritesRequest;
+import com.swagoverflow.androidclient.api.requests.PostFavoriteShowRequest;
 import com.swagoverflow.androidclient.api.requests.PostFavoriteTeamRequest;
 import com.swagoverflow.androidclient.api.responses.GetShowResponse;
+import com.swagoverflow.androidclient.api.responses.GetShowsResponse;
 import com.swagoverflow.androidclient.api.responses.GetTeamResponse;
 import com.swagoverflow.androidclient.api.responses.GetTeamsResponse;
 import com.swagoverflow.androidclient.api.responses.GetUserResponse;
 import com.swagoverflow.androidclient.api.responses.ObtainFavoritesResult;
+import com.swagoverflow.androidclient.api.responses.ShowPostedResponse;
+import com.swagoverflow.androidclient.api.responses.TeamPostedResponse;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -116,6 +122,7 @@ public class RequestService {
             @Override
             public void success(com.squareup.okhttp.Response response, Response response2) {
                 Log.i(TAG, "Succeeded in posting team");
+                mBus.post(new TeamPostedResponse());
             }
 
             @Override
@@ -131,6 +138,52 @@ public class RequestService {
             @Override
             public void success(com.squareup.okhttp.Response response, Response response2) {
                 Log.i(TAG, "Succeeded in deleting team");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e(TAG, error.getMessage());
+            }
+        });
+    }
+
+    @Subscribe
+    public void onGetShows(GetShowsRequest request) {
+        mApi.getAllShows(new Callback<GetShowsResponse>() {
+            @Override
+            public void success(GetShowsResponse response, Response response2) {
+                mBus.post(response);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e(TAG, error.getMessage());
+            }
+        });
+    }
+
+    @Subscribe
+    public void onPostShow(PostFavoriteShowRequest request){
+        mApi.postShow(request.getUserId(), request, new Callback<com.squareup.okhttp.Response>() {
+            @Override
+            public void success(com.squareup.okhttp.Response response, Response response2) {
+                Log.i(TAG, "Success");
+                mBus.post(new ShowPostedResponse());
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e(TAG, error.getMessage());
+            }
+        });
+    }
+
+    @Subscribe
+    public void onDeleteShow(DeleteFavoriteShowRequest request) {
+        mApi.deleteFavoriteShow(request.getUserId(), request.getShowId(), new Callback<com.squareup.okhttp.Response>() {
+            @Override
+            public void success(com.squareup.okhttp.Response response, Response response2) {
+                Log.i(TAG, "deleted");
             }
 
             @Override

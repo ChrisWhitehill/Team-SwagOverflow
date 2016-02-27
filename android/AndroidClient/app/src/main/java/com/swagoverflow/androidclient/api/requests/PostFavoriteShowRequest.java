@@ -1,19 +1,16 @@
 package com.swagoverflow.androidclient.api.requests;
 
-/**
- * Created by Mike on 2/27/2016.
- */
-public class PostFavoriteTeamRequest {
+public class PostFavoriteShowRequest {
     private long team;
     private long user;
     private boolean notifications = true;
 
-    public PostFavoriteTeamRequest(long teamId, long userId) {
-        this.team = teamId;
+    public PostFavoriteShowRequest(long showId, long userId) {
+        this.team = showId;
         this.user = userId;
     }
 
-    public long getTeamId() {
+    public long getShowId() {
         return team;
     }
 
