@@ -1,0 +1,12 @@
+{% extends "_layout.html" %}
+
+{% block title %}Teams and Shows{% endblock %}
+
+{% block container %}
+    {% for show in shows %}
+        <img src="{{ show.logo_url }} "/>
+    {% endfor %}
+    {% for team in teams %}
+        <img src="{{ team.logo_url }} "/>
+    {% endfor %}
+{% endblock %}
