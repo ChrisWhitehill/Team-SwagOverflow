@@ -14,12 +14,14 @@ class PreferencesViewController: UIViewController {
     
     let sectionTitles = ["Teams", "TV Shows"]
     var userService: UserService!
+    var favoriteService: FavoriteService!
     var activeUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userService = UserService()
+        favoriteService = FavoriteService()
         
         if let user = userService.getActiveUser() {
             activeUser = user
@@ -32,7 +34,12 @@ class PreferencesViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addPrefTapped"))
         setRightBarButton(addButton)
         setNavTitle("Favorites")
-        
+        reloadPreferences()
+    }
+    
+    func reloadPreferences() {
+        activeUser.teamFavorites = []
+        activeUser.showFavorites = []
         userService.getFavoritesForUser(activeUser, success: { dict in
             dispatch_async(dispatch_get_main_queue()) {
                 self.activeUser.parseFavorites(dict)
@@ -72,6 +79,7 @@ extension PreferencesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
         cell.displayForFavorite(favoriteForIndexPath(indexPath))
+        cell.delegate = self
         return cell
     }
 }
@@ -82,5 +90,14 @@ extension PreferencesViewController: UITableViewDelegate {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("PreferenceDetailViewController") as! PreferenceDetailViewController
         controller.favorite = favoriteForIndexPath(indexPath)
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+extension PreferencesViewController: PreferenceTableViewCellDelegate {
+    
+    func deleteFavorite(id: Int, isTeam: Bool) {
+        favoriteService.deleteFavorite(activeUser.id!, isTeam: isTeam, id: id) {
+            self.reloadPreferences()
+        }
     }
 }

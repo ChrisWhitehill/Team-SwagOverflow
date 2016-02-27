@@ -31,6 +31,10 @@
 		1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C01C820439007A269C /* AddFavoriteViewController.swift */; };
 		1645B5C31C821919007A269C /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C21C821919007A269C /* ItemService.swift */; };
 		1645B5C51C821FB0007A269C /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C41C821FB0007A269C /* FavoriteService.swift */; };
+		1645B5C71C822B13007A269C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C61C822B13007A269C /* Event.swift */; };
+		1645B5C91C822CC2007A269C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C81C822CC2007A269C /* Game.swift */; };
+		1645B5CB1C822CCB007A269C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5CA1C822CCB007A269C /* Episode.swift */; };
+		1645B5CD1C822D28007A269C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5CC1C822D28007A269C /* EventTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		1645B5C01C820439007A269C /* AddFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavoriteViewController.swift; sourceTree = "<group>"; };
 		1645B5C21C821919007A269C /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 		1645B5C41C821FB0007A269C /* FavoriteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		1645B5C61C822B13007A269C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1645B5C81C822CC2007A269C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		1645B5CA1C822CCB007A269C /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		1645B5CC1C822D28007A269C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,7 @@
 				1645B5921C81DD23007A269C /* PreferencesViewController.swift */,
 				1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */,
 				1645B5941C81DD2C007A269C /* EventsViewController.swift */,
+				1645B5CC1C822D28007A269C /* EventTableViewCell.swift */,
 				1645B5961C81DD38007A269C /* AccountViewController.swift */,
 				1645B5991C81E43B007A269C /* ViewController+Extensions.swift */,
 				1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */,
@@ -181,6 +190,9 @@
 				1645B5A81C81EACB007A269C /* Team.swift */,
 				1645B5AA1C81EACB007A269C /* Show.swift */,
 				1645B5BC1C81FF2C007A269C /* Favorite.swift */,
+				1645B5C61C822B13007A269C /* Event.swift */,
+				1645B5C81C822CC2007A269C /* Game.swift */,
+				1645B5CA1C822CCB007A269C /* Episode.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -339,10 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1645B5CD1C822D28007A269C /* EventTableViewCell.swift in Sources */,
 				1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */,
 				1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */,
 				1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */,
 				1645B5B21C81EB39007A269C /* User.swift in Sources */,
+				1645B5C71C822B13007A269C /* Event.swift in Sources */,
+				1645B5CB1C822CCB007A269C /* Episode.swift in Sources */,
 				1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */,
 				1645B5BF1C81FF97007A269C /* Item.swift in Sources */,
 				1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */,
@@ -354,6 +369,7 @@
 				1645B59A1C81E43B007A269C /* ViewController+Extensions.swift in Sources */,
 				1645B5C31C821919007A269C /* ItemService.swift in Sources */,
 				1645B5AC1C81EACB007A269C /* Team.swift in Sources */,
+				1645B5C91C822CC2007A269C /* Game.swift in Sources */,
 				1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */,
 				1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */,
 				1645B5B71C81EE80007A269C /* PreferenceTableViewCell.swift in Sources */,

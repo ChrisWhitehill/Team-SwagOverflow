@@ -27,6 +27,6 @@ class ItemService: NSObject {
             } else {
                 error?(nil, "could not parse response data")
             }
-            }, error: error)
+        }, error: error)
     }
 }

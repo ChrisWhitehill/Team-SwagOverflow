@@ -151,14 +151,19 @@ extension AddFavoriteViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
         
-        cell.textLabel?.text = itemsToDisplay[indexPath.row].name
+        let item = itemsToDisplay[indexPath.row]
+        cell.nameLabel.text = item.name
         
         if selectedItem != nil && indexPath == selectedItem {
             cell.accessoryType = .Checkmark
         } else {
             cell.accessoryType = .None
+        }
+        
+        if let logo = item.logo_url, let url  = NSURL(string: logo), data = NSData(contentsOfURL: url) {
+            cell.img.image = UIImage(data: data)
         }
         
         return cell

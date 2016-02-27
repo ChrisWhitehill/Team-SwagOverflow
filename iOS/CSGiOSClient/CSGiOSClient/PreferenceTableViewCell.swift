@@ -8,15 +8,25 @@
 
 import UIKit
 
+protocol PreferenceTableViewCellDelegate {
+    func deleteFavorite(id: Int, isTeam: Bool)
+}
+
 class PreferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var delegate: PreferenceTableViewCellDelegate?
     var favorite: Favorite?
     
     @IBAction func deleteTapped() {
-        print("delete")
+        var isTeam = false
+        if let _ = favorite?.item as? Team {
+            isTeam = true
+        }
+        
+        delegate?.deleteFavorite(favorite!.id!, isTeam: isTeam)
     }
     
     func displayForFavorite(favorite: Favorite) {
