@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B55F1C81D8E4007A269C /* AppDelegate.swift */; };
-		1645B5621C81D8E4007A269C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5611C81D8E4007A269C /* ViewController.swift */; };
+		1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5611C81D8E4007A269C /* LoginViewController.swift */; };
 		1645B5651C81D8E4007A269C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1645B5631C81D8E4007A269C /* Main.storyboard */; };
 		1645B5681C81D8E4007A269C /* CSGiOSClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5661C81D8E4007A269C /* CSGiOSClient.xcdatamodeld */; };
 		1645B56A1C81D8E4007A269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1645B5691C81D8E4007A269C /* Assets.xcassets */; };
 		1645B56D1C81D8E4007A269C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1645B56B1C81D8E4007A269C /* LaunchScreen.storyboard */; };
 		1645B5781C81D8E5007A269C /* CSGiOSClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5771C81D8E5007A269C /* CSGiOSClientTests.swift */; };
 		1645B5831C81D8E5007A269C /* CSGiOSClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5821C81D8E5007A269C /* CSGiOSClientUITests.swift */; };
+		1645B5911C81DCD4007A269C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5901C81DCD4007A269C /* TabBarController.swift */; };
+		1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5921C81DD23007A269C /* PreferencesViewController.swift */; };
+		1645B5951C81DD2C007A269C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5941C81DD2C007A269C /* EventsViewController.swift */; };
+		1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5961C81DD38007A269C /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,7 @@
 /* Begin PBXFileReference section */
 		1645B55C1C81D8E4007A269C /* CSGiOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSGiOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1645B55F1C81D8E4007A269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1645B5611C81D8E4007A269C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1645B5611C81D8E4007A269C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1645B5641C81D8E4007A269C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1645B5671C81D8E4007A269C /* CSGiOSClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CSGiOSClient.xcdatamodel; sourceTree = "<group>"; };
 		1645B5691C81D8E4007A269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		1645B57E1C81D8E5007A269C /* CSGiOSClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSGiOSClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1645B5821C81D8E5007A269C /* CSGiOSClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGiOSClientUITests.swift; sourceTree = "<group>"; };
 		1645B5841C81D8E5007A269C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1645B5901C81DCD4007A269C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1645B5921C81DD23007A269C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		1645B5941C81DD2C007A269C /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		1645B5961C81DD38007A269C /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,14 @@
 		1645B55E1C81D8E4007A269C /* CSGiOSClient */ = {
 			isa = PBXGroup;
 			children = (
-				1645B55F1C81D8E4007A269C /* AppDelegate.swift */,
-				1645B5611C81D8E4007A269C /* ViewController.swift */,
+				1645B5611C81D8E4007A269C /* LoginViewController.swift */,
+				1645B5901C81DCD4007A269C /* TabBarController.swift */,
+				1645B5921C81DD23007A269C /* PreferencesViewController.swift */,
+				1645B5941C81DD2C007A269C /* EventsViewController.swift */,
+				1645B5961C81DD38007A269C /* AccountViewController.swift */,
 				1645B5631C81D8E4007A269C /* Main.storyboard */,
 				1645B5691C81D8E4007A269C /* Assets.xcassets */,
+				1645B55F1C81D8E4007A269C /* AppDelegate.swift */,
 				1645B56B1C81D8E4007A269C /* LaunchScreen.storyboard */,
 				1645B56E1C81D8E4007A269C /* Info.plist */,
 				1645B5661C81D8E4007A269C /* CSGiOSClient.xcdatamodeld */,
@@ -259,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */,
 				1645B5681C81D8E4007A269C /* CSGiOSClient.xcdatamodeld in Sources */,
-				1645B5621C81D8E4007A269C /* ViewController.swift in Sources */,
+				1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */,
+				1645B5911C81DCD4007A269C /* TabBarController.swift in Sources */,
+				1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */,
 				1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */,
+				1645B5951C81DD2C007A269C /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
