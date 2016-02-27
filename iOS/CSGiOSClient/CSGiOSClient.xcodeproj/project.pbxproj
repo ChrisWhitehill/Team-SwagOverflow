@@ -29,6 +29,7 @@
 		1645B5AF1C81EACB007A269C /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5AB1C81EACB007A269C /* Show.swift */; };
 		1645B5B21C81EB39007A269C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B01C81EB39007A269C /* User+CoreDataProperties.swift */; };
 		1645B5B31C81EB39007A269C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B11C81EB39007A269C /* User.swift */; };
+		1645B5B51C81EC8D007A269C /* UserCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B41C81EC8D007A269C /* UserCDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		1645B5AB1C81EACB007A269C /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		1645B5B01C81EB39007A269C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1645B5B11C81EB39007A269C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1645B5B41C81EC8D007A269C /* UserCDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		1645B5A11C81E8CC007A269C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				1645B5B41C81EC8D007A269C /* UserCDManager.swift */,
 				1645B5A41C81E93B007A269C /* BaseCDManager.swift */,
 			);
 			name = CoreData;
@@ -358,6 +361,7 @@
 				1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */,
 				1645B5951C81DD2C007A269C /* EventsViewController.swift in Sources */,
 				1645B5A51C81E93B007A269C /* BaseCDManager.swift in Sources */,
+				1645B5B51C81EC8D007A269C /* UserCDManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
