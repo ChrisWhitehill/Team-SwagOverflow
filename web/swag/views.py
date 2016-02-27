@@ -10,13 +10,16 @@ from django.conf import settings
 
 
 def send_sms(message, to):
-    client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID,
-                              settings.TWILIO_AUTH_TOKEN)
-    client.messages.create(
-        to_= to,
-        from_ = settings.TWILIO_DEFAULT_CALLERID,
-        body = message
-    )
+    try:
+        client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID,
+                                  settings.TWILIO_AUTH_TOKEN)
+        client.messages.create(
+            to_= to,
+            from_ = settings.TWILIO_DEFAULT_CALLERID,
+            body = message
+        )
+    except:
+        pass
 
 
 @api_view(['GET'])
