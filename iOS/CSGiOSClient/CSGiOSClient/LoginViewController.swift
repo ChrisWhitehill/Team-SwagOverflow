@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     var appeared = false
     
     override func viewDidAppear(animated: Bool) {
