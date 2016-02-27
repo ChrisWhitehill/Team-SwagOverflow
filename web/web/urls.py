@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^api/', include('swag.urls')),
     url(r'^teams', views.teams),
     url(r'^shows', views.shows),
-    url(r'^', views.index),
+    url(r'^/', views.index),
 ]

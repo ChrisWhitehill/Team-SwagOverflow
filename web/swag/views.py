@@ -158,14 +158,14 @@ class FavoriteTeamViewSet(ViewSet):
         serializer = FavoriteTeamSerializer(queryset, many=True)
         return Response({'favoriteteams': serializer.data})
 
-    def create(self, request):
-        serializer = FavoriteTeamSerializer(data=request.data['favoriteteam'])
+    def create(self, request, user_pk=None):
+        serializer = FavoriteTeamSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'favoriteteam': serializer.data}, status=201)
         return Response(serializer.errors, status=400)
 
-    def retrieve(self, request, pk=None, domain_pk=None):
+    def retrieve(self, request, pk=None, user_pk=None):
         queryset = FavoriteTeam.objects.filter(user=user_pk)
         item = get_object_or_404(queryset, pk=pk)
         serializer = FavoriteTeamSerializer(item)
@@ -176,10 +176,10 @@ class FavoriteTeamViewSet(ViewSet):
             item = FavoriteTeam.objects.get(pk=pk)
         except FavoriteTeam.DoesNotExist:
             return Response(status=404)
-        serializer = FavoriteTeamSerializer(item, data=request.data['favoriteteam'])
+        serializer = FavoriteTeamSerializer(item, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'favoriteteam': serializer.data})
+            return Response(serializer.data)
         return Response(serializer.errors, status=400)
 
     def destroy(self, request, pk=None):
@@ -198,11 +198,11 @@ class FavoriteShowViewSet(ViewSet):
         serializer = FavoriteShowSerializer(queryset, many=True)
         return Response({'favoriteshows': serializer.data})
 
-    def create(self, request):
-        serializer = FavoriteShowSerializer(data=request.data['favoriteshow'])
+    def create(self, request, user_pk=None):
+        serializer = FavoriteShowSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'favoriteshow': serializer.data}, status=201)
+            return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
     def retrieve(self, request, pk=None, user_pk=None):
@@ -216,7 +216,7 @@ class FavoriteShowViewSet(ViewSet):
             item = FavoriteShow.objects.get(pk=pk)
         except FavoriteShow.DoesNotExist:
             return Response(status=404)
-        serializer = FavoriteShowSerializer(item, data=request.data['favoriteshow'])
+        serializer = FavoriteShowSerializer(item, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'favoriteshow': serializer.data})
