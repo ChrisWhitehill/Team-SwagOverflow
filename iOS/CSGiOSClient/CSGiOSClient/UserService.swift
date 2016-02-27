@@ -35,4 +35,20 @@ class UserService: NSObject {
             }
         }, error: error)
     }
+    
+    func getEventsForUser(user: User, success: (([String: AnyObject])->())?,
+        error: ((NSError?, String)->())?) {
+        guard let id = user.id else {
+            return
+        }
+        
+        HttpClient(domain: "https://swagoverflow.brobin.me/api/").executeRequest("user/\(id)/events",
+            method: .GET, headers: nil, postData: nil, success: { string in
+            if let dict = parseDictionaryFromJSON(string) {
+                success?(dict)
+            } else {
+                error?(nil, "could not parse response data")
+            }
+        }, error: error)
+    }
 }

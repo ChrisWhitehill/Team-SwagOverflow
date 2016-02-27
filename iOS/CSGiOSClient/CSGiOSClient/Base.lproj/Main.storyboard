@@ -154,7 +154,7 @@
                                                         <constraint firstAttribute="width" secondItem="kvr-V1-bUs" secondAttribute="height" multiplier="1:1" id="JMt-WN-Zjj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGv-8Q-PTW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XGv-8Q-PTW">
                                                     <rect key="frame" x="85" y="18" width="53" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -173,8 +173,8 @@
                                                         <constraint firstAttribute="height" constant="1" id="xvy-oB-Bmw"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-V1-cVT">
-                                                    <rect key="frame" x="549" y="31" width="36" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-V1-cVT">
+                                                    <rect key="frame" x="548" y="46" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -183,6 +183,7 @@
                                             <constraints>
                                                 <constraint firstItem="z6g-UY-LjZ" firstAttribute="leading" secondItem="kvr-V1-bUs" secondAttribute="trailing" constant="15" id="17x-PZ-2je"/>
                                                 <constraint firstItem="kvr-V1-bUs" firstAttribute="leading" secondItem="Hmy-bo-xHl" secondAttribute="leading" constant="10" id="1Kp-cE-Zad"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XGv-8Q-PTW" secondAttribute="trailing" constant="15" id="2kn-aw-Ire"/>
                                                 <constraint firstAttribute="trailing" secondItem="qWX-V1-cVT" secondAttribute="trailing" constant="15" id="Ar1-cd-GR3"/>
                                                 <constraint firstItem="KXQ-iI-OKW" firstAttribute="leading" secondItem="Hmy-bo-xHl" secondAttribute="leading" id="HSg-Wv-Br5"/>
                                                 <constraint firstAttribute="bottom" secondItem="kvr-V1-bUs" secondAttribute="bottom" constant="10" id="N14-eE-Erp"/>
@@ -193,7 +194,13 @@
                                                 <constraint firstItem="kvr-V1-bUs" firstAttribute="top" secondItem="Hmy-bo-xHl" secondAttribute="top" constant="10" id="u74-yZ-wpx"/>
                                                 <constraint firstItem="qWX-V1-cVT" firstAttribute="centerY" secondItem="Hmy-bo-xHl" secondAttribute="centerY" id="xdc-C7-MLf"/>
                                                 <constraint firstItem="z6g-UY-LjZ" firstAttribute="top" secondItem="XGv-8Q-PTW" secondAttribute="bottom" constant="5" id="yaC-3h-wEI"/>
+                                                <constraint firstItem="qWX-V1-cVT" firstAttribute="centerY" secondItem="z6g-UY-LjZ" secondAttribute="centerY" id="zMY-NU-6cB"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="xdc-C7-MLf"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="channelLabel" destination="qWX-V1-cVT" id="mpz-Je-VMm"/>
