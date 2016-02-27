@@ -9,6 +9,7 @@ public class Episode {
     private Show show;
     private Date date;
     private String channel_number;
+    private String channel_name;
     private String video_url;
     private String thumbnail_url;
 
@@ -17,7 +18,7 @@ public class Episode {
     }
 
     public String getChannel() {
-        return channel_number;
+        return channel_name;
     }
 
     public String getVideoUrl() {

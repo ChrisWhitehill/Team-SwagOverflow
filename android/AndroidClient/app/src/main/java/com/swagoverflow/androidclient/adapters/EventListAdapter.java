@@ -113,6 +113,8 @@ public class EventListAdapter extends BaseAdapter implements StickyListHeadersAd
             channel.setText(episode.getChannel());
         } else {
             view.setMinimumHeight(Utility.convertDpToPx(context.getWindowManager().getDefaultDisplay(), 10));
+            date.setVisibility(View.GONE);
+            name.setVisibility(View.GONE);
         }
 
         return view;
