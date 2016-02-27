@@ -71,7 +71,7 @@ extension PreferencesViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
-        cell.displayForItem(favoriteForIndexPath(indexPath).item!)
+        cell.displayForFavorite(favoriteForIndexPath(indexPath))
         return cell
     }
 }

@@ -10,11 +10,14 @@ import UIKit
 
 class PreferenceDetailViewController: UIViewController {
     
+    @IBOutlet weak var switcher: UISwitch!
+    
     var favorite: Favorite!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = favorite.item!.name
+        switcher.enabled = favorite.notifs_enabled!
     }
 }
