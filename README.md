@@ -10,9 +10,9 @@ With this app, you can subscribe to shows and soprts teams and stream all of the
 
 ### Components
 
- - [REST API backend](api/readme.md)
- - [Android app client](android/readme.md)
- - [iOS app client](iOS/readme.md)
+ - REST API backend
+ - Android Client
+ - iOS app Client
 
 ### Color Scheme
 
