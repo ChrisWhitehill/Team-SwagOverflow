@@ -292,8 +292,102 @@
                     <view key="view" contentMode="scaleToFill" id="77G-Rc-iUO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TeY-j9-VNf">
+                                <rect key="frame" x="30" y="35" width="540" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2VK-G5-R5m"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Sports Team"/>
+                                    <segment title="TV Show"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="zbD-hm-AVI" eventType="valueChanged" id="OFn-T5-q5Y"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGx-ec-7SV">
+                                <rect key="frame" x="0.0" y="95" width="600" height="60"/>
+                                <subviews>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3B-HD-Tvx">
+                                        <rect key="frame" x="30" y="15" width="540" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsJ-YB-yVa">
+                                        <rect key="frame" x="30" y="10" width="540" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ty-CF-HUp">
+                                                <rect key="frame" x="242" y="10" width="56" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sY-fp-okS">
+                                                <rect key="frame" x="506" y="8" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0sY-fp-okS" secondAttribute="height" multiplier="1:1" id="FBg-pG-LLK"/>
+                                                    <constraint firstAttribute="height" constant="24" id="Sla-PB-X41"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="ic_keyboard_arrow_down"/>
+                                                <connections>
+                                                    <action selector="changeLeagueTapped" destination="zbD-hm-AVI" eventType="touchUpInside" id="zOt-5W-ffk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="0sY-fp-okS" firstAttribute="centerY" secondItem="xsJ-YB-yVa" secondAttribute="centerY" id="3bA-Os-Ee3"/>
+                                            <constraint firstAttribute="trailing" secondItem="0sY-fp-okS" secondAttribute="trailing" constant="10" id="6Ih-VS-79x"/>
+                                            <constraint firstItem="7ty-CF-HUp" firstAttribute="centerX" secondItem="xsJ-YB-yVa" secondAttribute="centerX" id="Zlu-2I-QKm"/>
+                                            <constraint firstItem="7ty-CF-HUp" firstAttribute="centerY" secondItem="xsJ-YB-yVa" secondAttribute="centerY" id="duy-Nu-gB1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xsJ-YB-yVa" secondAttribute="bottom" constant="10" id="26g-Hr-svS"/>
+                                    <constraint firstAttribute="height" constant="60" id="8CT-8Q-eld"/>
+                                    <constraint firstItem="xsJ-YB-yVa" firstAttribute="centerY" secondItem="fGx-ec-7SV" secondAttribute="centerY" id="EID-UB-qT0"/>
+                                    <constraint firstItem="xsJ-YB-yVa" firstAttribute="leading" secondItem="fGx-ec-7SV" secondAttribute="leading" constant="30" id="FZD-1I-91j"/>
+                                    <constraint firstItem="xsJ-YB-yVa" firstAttribute="centerX" secondItem="fGx-ec-7SV" secondAttribute="centerX" id="IDT-vH-wGJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="xsJ-YB-yVa" secondAttribute="trailing" constant="30" id="UV5-cO-tU0"/>
+                                    <constraint firstItem="G3B-HD-Tvx" firstAttribute="leading" secondItem="fGx-ec-7SV" secondAttribute="leading" constant="30" id="aTf-UC-AC0"/>
+                                    <constraint firstItem="xsJ-YB-yVa" firstAttribute="top" secondItem="fGx-ec-7SV" secondAttribute="top" constant="10" id="f5k-uS-aJn"/>
+                                    <constraint firstItem="G3B-HD-Tvx" firstAttribute="centerY" secondItem="fGx-ec-7SV" secondAttribute="centerY" id="iBd-ED-gYU"/>
+                                    <constraint firstAttribute="trailing" secondItem="G3B-HD-Tvx" secondAttribute="trailing" constant="30" id="itw-qC-MIo"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OXv-xS-mwA">
+                                <rect key="frame" x="0.0" y="175" width="600" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zbD-hm-AVI" id="Ekn-Ll-nFx"/>
+                                    <outlet property="delegate" destination="zbD-hm-AVI" id="y2O-Gh-41M"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TeY-j9-VNf" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" constant="30" id="9Hl-dX-k7X"/>
+                            <constraint firstItem="OXv-xS-mwA" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" id="Cye-sd-8hk"/>
+                            <constraint firstItem="3QF-gF-2f3" firstAttribute="top" secondItem="OXv-xS-mwA" secondAttribute="bottom" id="Ggk-40-aH4"/>
+                            <constraint firstAttribute="trailing" secondItem="OXv-xS-mwA" secondAttribute="trailing" id="IS0-qB-htI"/>
+                            <constraint firstAttribute="trailing" secondItem="TeY-j9-VNf" secondAttribute="trailing" constant="30" id="N51-fm-l7w"/>
+                            <constraint firstItem="OXv-xS-mwA" firstAttribute="top" secondItem="fGx-ec-7SV" secondAttribute="bottom" constant="20" id="V0B-3n-I2R"/>
+                            <constraint firstItem="fGx-ec-7SV" firstAttribute="top" secondItem="TeY-j9-VNf" secondAttribute="bottom" constant="30" id="bqQ-Ld-Vbt"/>
+                            <constraint firstItem="TeY-j9-VNf" firstAttribute="top" secondItem="l90-Y2-vLL" secondAttribute="bottom" constant="15" id="cmm-Kh-2sX"/>
+                            <constraint firstAttribute="trailing" secondItem="fGx-ec-7SV" secondAttribute="trailing" id="oR5-wv-x0Z"/>
+                            <constraint firstItem="fGx-ec-7SV" firstAttribute="leading" secondItem="77G-Rc-iUO" secondAttribute="leading" id="s5d-Fu-qkY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leagueLabel" destination="7ty-CF-HUp" id="mWg-Ps-8SG"/>
+                        <outlet property="leagueView" destination="xsJ-YB-yVa" id="PRt-9d-2I3"/>
+                        <outlet property="segmentedControl" destination="TeY-j9-VNf" id="5ok-W9-mKa"/>
+                        <outlet property="showSearchField" destination="G3B-HD-Tvx" id="cl4-Yr-5xh"/>
+                        <outlet property="tableView" destination="OXv-xS-mwA" id="vM1-iM-xuv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beE-79-0q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -346,6 +440,7 @@
         <image name="ic_action_fingerprint" width="48" height="48"/>
         <image name="ic_action_television" width="48" height="48"/>
         <image name="ic_action_trashcan" width="600" height="366"/>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
         <image name="log_in" width="1296" height="864"/>
     </resources>
 </document>

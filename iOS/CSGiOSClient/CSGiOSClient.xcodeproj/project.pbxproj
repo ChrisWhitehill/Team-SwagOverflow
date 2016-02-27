@@ -29,6 +29,7 @@
 		1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BC1C81FF2C007A269C /* Favorite.swift */; };
 		1645B5BF1C81FF97007A269C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BE1C81FF97007A269C /* Item.swift */; };
 		1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C01C820439007A269C /* AddFavoriteViewController.swift */; };
+		1645B5C31C821919007A269C /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C21C821919007A269C /* ItemService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		1645B5BC1C81FF2C007A269C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		1645B5BE1C81FF97007A269C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1645B5C01C820439007A269C /* AddFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavoriteViewController.swift; sourceTree = "<group>"; };
+		1645B5C21C821919007A269C /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1645B5B81C81F2F6007A269C /* UserService.swift */,
+				1645B5C21C821919007A269C /* ItemService.swift */,
 				1645B5A21C81E906007A269C /* HttpClient.swift */,
 			);
 			name = HttpClient;
@@ -345,6 +348,7 @@
 				1645B5A31C81E906007A269C /* HttpClient.swift in Sources */,
 				1645B5B91C81F2F6007A269C /* UserService.swift in Sources */,
 				1645B59A1C81E43B007A269C /* ViewController+Extensions.swift in Sources */,
+				1645B5C31C821919007A269C /* ItemService.swift in Sources */,
 				1645B5AC1C81EACB007A269C /* Team.swift in Sources */,
 				1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */,
 				1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */,

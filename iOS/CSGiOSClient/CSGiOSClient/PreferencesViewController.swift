@@ -42,6 +42,8 @@ class PreferencesViewController: UIViewController {
     
     func addPrefTapped() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("AddFavoriteViewController") as! AddFavoriteViewController
+        controller.activeUser = activeUser
+        
         let navController = UINavigationController(rootViewController: controller)
         presentViewController(navController, animated: true, completion: nil)
     }
