@@ -36,12 +36,4 @@ These are the current available URLs. Detail views accept `GET`, `POST`, `PUT`, 
 
 ### Additional Configuration
 
-You may override all of the setting defined in `dev_settings.py` by creating a file called `deploy_settings.py` and defining all of the settings in there.
-
-If you would like to run with the twilio integration, three more settings are required which may be obtained from your twilio account settings.
-
-```python
-TWILIO_ACCOUNT_SID = 'AXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-TWILIO_AUTH_TOKEN = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-TWILIO_DEFAULT_CALLERID = '+14025555555'
-```
+You may override all of the setting defined in `dev_settings.py` by in a new file called `deploy_settings.py`.
