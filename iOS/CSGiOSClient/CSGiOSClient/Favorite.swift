@@ -1,5 +1,5 @@
 //
-//  User+CoreDataProperties.swift
+//  Favorite.swift
 //  CSGiOSClient
 //
 //  Created by Jacob Sanchez on 2/27/16.
@@ -8,11 +8,10 @@
 
 import Foundation
 
-class User: NSObject {
-
+class Favorite: NSObject {
+    
     var id: Int?
-    var name: String?
-    var email: String?
-    var phone: String?
-
+    var item: Item?
+    var user: User?
+    
 }

@@ -13,27 +13,17 @@ class PreferenceTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var team: Team?
-    var show: Show?
+    var item: Item?
     
     @IBAction func deleteTapped() {
         print("delete")
     }
     
-    func displayForTeam(team: Team) {
-        self.team = team
-        nameLabel.text = team.name
+    func displayForItem(item: Item) {
+        self.item = item
+        nameLabel.text = item.name
         
-        if let logo = team.logo_url, let url  = NSURL(string: logo), data = NSData(contentsOfURL: url) {
-            img.image = UIImage(data: data)
-        }
-    }
-    
-    func displayForShow(show: Show) {
-        self.show = show
-        nameLabel.text = show.name
-        
-        if let logo = show.logo_url, let url  = NSURL(string: logo), data = NSData(contentsOfURL: url) {
+        if let logo = item.logo_url, let url  = NSURL(string: logo), data = NSData(contentsOfURL: url) {
             img.image = UIImage(data: data)
         }
     }

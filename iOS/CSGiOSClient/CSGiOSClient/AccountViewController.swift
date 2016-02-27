@@ -14,6 +14,6 @@ class AccountViewController: UIViewController {
         super.viewDidAppear(animated)
         
         setRightBarButton(nil)
-        setNavTitle("My Account")
+        setNavTitle("Account")
     }
 }

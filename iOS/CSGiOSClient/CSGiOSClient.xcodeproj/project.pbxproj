@@ -25,6 +25,9 @@
 		1645B5B21C81EB39007A269C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B01C81EB39007A269C /* User.swift */; };
 		1645B5B71C81EE80007A269C /* PreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */; };
 		1645B5B91C81F2F6007A269C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B81C81F2F6007A269C /* UserService.swift */; };
+		1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */; };
+		1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BC1C81FF2C007A269C /* Favorite.swift */; };
+		1645B5BF1C81FF97007A269C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BE1C81FF97007A269C /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		1645B5B01C81EB39007A269C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewCell.swift; sourceTree = "<group>"; };
 		1645B5B81C81F2F6007A269C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDetailViewController.swift; sourceTree = "<group>"; };
+		1645B5BC1C81FF2C007A269C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		1645B5BE1C81FF97007A269C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 				1645B5941C81DD2C007A269C /* EventsViewController.swift */,
 				1645B5961C81DD38007A269C /* AccountViewController.swift */,
 				1645B5991C81E43B007A269C /* ViewController+Extensions.swift */,
+				1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,8 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				1645B5B01C81EB39007A269C /* User.swift */,
+				1645B5BE1C81FF97007A269C /* Item.swift */,
 				1645B5A81C81EACB007A269C /* Team.swift */,
 				1645B5AA1C81EACB007A269C /* Show.swift */,
+				1645B5BC1C81FF2C007A269C /* Favorite.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,8 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */,
 				1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */,
 				1645B5B21C81EB39007A269C /* User.swift in Sources */,
+				1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */,
+				1645B5BF1C81FF97007A269C /* Item.swift in Sources */,
 				1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */,
 				1645B5AE1C81EACB007A269C /* Show.swift in Sources */,
 				1645B5911C81DCD4007A269C /* TabBarController.swift in Sources */,

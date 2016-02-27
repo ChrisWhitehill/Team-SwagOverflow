@@ -14,6 +14,6 @@ class EventsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         setRightBarButton(nil)
-        setNavTitle("My Events")
+        setNavTitle("Events")
     }
 }
