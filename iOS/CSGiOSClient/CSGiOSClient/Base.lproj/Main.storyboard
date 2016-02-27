@@ -427,18 +427,6 @@
                                                     <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-f4-YKQ">
-                                                    <rect key="frame" x="540" y="23" width="50" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="tfy-f4-YKQ" secondAttribute="height" multiplier="5:3" id="9g8-Hj-hAa"/>
-                                                        <constraint firstAttribute="height" constant="30" id="PDg-go-2OR"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" image="ic_action_trashcan"/>
-                                                    <connections>
-                                                        <action selector="deleteTapped" destination="gXE-Qn-abO" eventType="touchUpInside" id="TZ9-RJ-tfE"/>
-                                                    </connections>
-                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-S2-ujz">
                                                     <rect key="frame" x="0.0" y="74" width="600" height="1"/>
                                                     <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -446,6 +434,18 @@
                                                         <constraint firstAttribute="height" constant="1" id="bNq-bF-rfa"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-f4-YKQ">
+                                                    <rect key="frame" x="555" y="20" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="tfy-f4-YKQ" secondAttribute="height" multiplier="3:3" id="9g8-Hj-hAa"/>
+                                                        <constraint firstAttribute="height" constant="35" id="PDg-go-2OR"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" image="ic_action_delete"/>
+                                                    <connections>
+                                                        <action selector="deleteTapped" destination="gXE-Qn-abO" eventType="touchUpInside" id="TZ9-RJ-tfE"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -642,6 +642,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="img" destination="6cn-w3-1wO" id="yuw-Z0-w8N"/>
                                             <outlet property="nameLabel" destination="PYW-gL-D7V" id="a2r-eg-rg4"/>
@@ -728,9 +729,9 @@
     </scenes>
     <resources>
         <image name="ic_action_account" width="48" height="48"/>
+        <image name="ic_action_delete" width="48" height="48"/>
         <image name="ic_action_fingerprint" width="48" height="48"/>
         <image name="ic_action_television" width="48" height="48"/>
-        <image name="ic_action_trashcan" width="600" height="366"/>
         <image name="ic_keyboard_arrow_down" width="24" height="24"/>
         <image name="log_in" width="1296" height="864"/>
     </resources>
