@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    var coreDataStack: CoreDataStack!
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
