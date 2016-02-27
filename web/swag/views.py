@@ -101,8 +101,8 @@ class FavoriteShowViewSet(ModelViewSet):
         serializer = FavoriteShowPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            team = FavoriteShow.objects.get(pk=serializer.data['id'])
-            resp = FavoriteShowSerializer(team)
+            show = FavoriteShow.objects.get(pk=serializer.data['id'])
+            resp = FavoriteShowSerializer(show)
             return Response(resp.data, status=201)
         return Response(serializer.errors, status=400)
 

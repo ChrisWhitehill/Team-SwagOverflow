@@ -1,6 +1,15 @@
-# SwagOverflow Web Project
+# SwagOverflow API
 
-### URLS
+This project contains a django and django-rest-framework powered REST API that serves data and streams assets to the SwagOverflow clients. Below you can find the routes available.
+
+### Usage
+
+ - Install python3
+ - Install requirements `pip install -r requirements.txt`
+ - Create the database `python manage.py migrate`
+ - Run the application `python manage.py runserver`
+
+### Routes
 
 These are the current available URLs. Detail views accept `GET`, `POST`, `PUT`, and `DELETE`. List views accept `GET`.
 
@@ -24,3 +33,7 @@ These are the current available URLs. Detail views accept `GET`, `POST`, `PUT`, 
 /api/user/<user_pk>/teams/          swag.views.FavoriteTeamViewSet  user-teams-list
 /api/user/<user_pk>/teams/<pk>/     swag.views.FavoriteTeamViewSet  user-teams-detail
 ```
+
+### Additional Configuration
+
+You may override all of the setting defined in `dev_settings.py` by in a new file called `deploy_settings.py`.
