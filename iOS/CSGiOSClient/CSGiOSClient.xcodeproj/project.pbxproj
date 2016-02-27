@@ -30,6 +30,7 @@
 		1645B5BF1C81FF97007A269C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BE1C81FF97007A269C /* Item.swift */; };
 		1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C01C820439007A269C /* AddFavoriteViewController.swift */; };
 		1645B5C31C821919007A269C /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C21C821919007A269C /* ItemService.swift */; };
+		1645B5C51C821FB0007A269C /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C41C821FB0007A269C /* FavoriteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		1645B5BE1C81FF97007A269C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1645B5C01C820439007A269C /* AddFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavoriteViewController.swift; sourceTree = "<group>"; };
 		1645B5C21C821919007A269C /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
+		1645B5C41C821FB0007A269C /* FavoriteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			children = (
 				1645B5B81C81F2F6007A269C /* UserService.swift */,
 				1645B5C21C821919007A269C /* ItemService.swift */,
+				1645B5C41C821FB0007A269C /* FavoriteService.swift */,
 				1645B5A21C81E906007A269C /* HttpClient.swift */,
 			);
 			name = HttpClient;
@@ -343,6 +346,7 @@
 				1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */,
 				1645B5BF1C81FF97007A269C /* Item.swift in Sources */,
 				1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */,
+				1645B5C51C821FB0007A269C /* FavoriteService.swift in Sources */,
 				1645B5AE1C81EACB007A269C /* Show.swift in Sources */,
 				1645B5911C81DCD4007A269C /* TabBarController.swift in Sources */,
 				1645B5A31C81E906007A269C /* HttpClient.swift in Sources */,
