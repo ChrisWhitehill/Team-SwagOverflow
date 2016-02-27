@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^leagues', views.league_list),
     url(r'^league/(?P<key>.*)', views.league_teams),
     url(r'^user/(?P<user_pk>.*)/favorites', views.user_favorites),
+    url(r'^user/(?P<user_pk>.*)/events', views.user_events),
 ]

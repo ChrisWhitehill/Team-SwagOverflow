@@ -32,6 +32,24 @@ def user_favorites(request, user_pk=None):
     return Response(data)
 
 
+@api_view(['GET'])
+def user_events(request, user_pk=None):
+    favorites = FavoriteTeam.objects.filter(user=user_pk)
+    teams = [f.team for f in favorites]
+    games = [g for g in Game.objects.all()
+             if g.away_team in teams
+             or g.home_team in teams]
+    _games = GameSerializer(games, many=True)
+
+    favorites = FavoriteShow.objects.filter(user=user_pk)
+    shows = [f.show for f in favorites]
+    episodes = [e for e in Episode.objects.all() if e.show in shows]
+    _episodes = EpisodeSerializer(episodes, many=True)
+
+    data = {'games': _games.data, 'episodes': _episodes.data}
+    return Response(data)
+
+
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
