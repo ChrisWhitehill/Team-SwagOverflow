@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^', include(user_shows_router.urls)),
     url(r'^', include(user_teams_router.urls)),
+    url(r'^leagues', views.league_list),
 ]

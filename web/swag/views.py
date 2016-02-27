@@ -1,8 +1,17 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.viewsets import ViewSet
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
 from swag.serializers import *
 from swag.models import *
+
+
+@api_view(['GET'])
+def league_list(request):
+    data = []
+    for key, name in Team.LEAGUES:
+        data.append({'key': key, 'name': name})
+    return Response({"leagues": data})
 
 
 class UserViewSet(ViewSet):
