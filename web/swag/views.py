@@ -21,6 +21,16 @@ def league_teams(request, key=None):
     return Response({'teams': serializer.data})
 
 
+@api_view(['GET'])
+def user_favorites(request, user_pk=None):
+    teams_query = FavoriteTeam.objects.filter(user=user_pk)
+    shows_query = FavoriteShow.objects.filter(user=user_pk)
+    teams = FavoriteTeamSerializer(teams_query, many=True)
+    shows = FavoriteTeamSerializer(shows_query, many=True)
+    data = {'teams': teams.data, 'shows': shows.data}
+    return Response(data)
+
+
 class UserViewSet(ViewSet):
 
     def list(self, request):
