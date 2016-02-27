@@ -27,6 +27,7 @@ class Team(models.Model):
 
 class Show(models.Model):
     name = models.CharField(max_length=128)
+    logo_url = models.CharField(max_length=128, default="")
 
     def __str__(self):
         return self.name
