@@ -9,10 +9,12 @@
 import Foundation
 
 class Event: NSObject {
-    
+   
+    var id: Int?
     var date: NSDate?
     var channelName: String?
     var videoUrl: String?
     var thumbnailUrl: String?
+    var channelNumber: Int?
     
 }
