@@ -13,5 +13,6 @@ class Favorite: NSObject {
     var id: Int?
     var item: Item?
     var user: User?
+    var notifs_enabled: Bool?
     
 }

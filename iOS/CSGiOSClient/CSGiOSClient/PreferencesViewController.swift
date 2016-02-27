@@ -13,6 +13,24 @@ class PreferencesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let sectionTitles = ["Teams", "TV Shows"]
+    var userService: UserService!
+    var activeUser: User!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        userService = UserService()
+        
+        if let user = userService.getActiveUser() {
+            activeUser = user
+            userService.getFavoritesForUser(user, success: { dict in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.activeUser.parseFavorites(dict)
+                    self.tableView.reloadData()
+                }
+            }, error: nil)
+        }
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,20 +46,9 @@ class PreferencesViewController: UIViewController {
         presentViewController(navController, animated: true, completion: nil)
     }
     
-    func getItemForSection(section: Int) -> Item {
-        if section == 0 {
-            let team = Team()
-            team.name = "Arizona Coyotes"
-            team.logo_url = "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Arizona_Coyotes.svg/200px-Arizona_Coyotes.svg.png"
-            
-            return team
-        } else {
-            let show = Show()
-            show.name = "Criminal Minds"
-            show.logo_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Criminal-Minds.svg/250px-Criminal-Minds.svg.png"
-            
-            return show
-        }
+    func favoriteForIndexPath(indexPath: NSIndexPath) -> Favorite {
+        let itemList: [Favorite] = indexPath.section == 0 ? activeUser.teamFavorites : activeUser.showFavorites
+        return itemList[indexPath.row]
     }
 }
 
@@ -56,12 +63,12 @@ extension PreferencesViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return section == 0 ? activeUser.teamFavorites.count : activeUser.showFavorites.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
-        cell.displayForItem(getItemForSection(indexPath.section))
+        cell.displayForItem(favoriteForIndexPath(indexPath).item!)
         return cell
     }
 }
@@ -70,7 +77,7 @@ extension PreferencesViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("PreferenceDetailViewController") as! PreferenceDetailViewController
-        controller.item = getItemForSection(indexPath.section)
+        controller.favorite = favoriteForIndexPath(indexPath)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

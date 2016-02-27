@@ -10,11 +10,11 @@ import UIKit
 
 class PreferenceDetailViewController: UIViewController {
     
-    var item: Item!
+    var favorite: Favorite!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = item.name
+        self.navigationItem.title = favorite.item!.name
     }
 }
