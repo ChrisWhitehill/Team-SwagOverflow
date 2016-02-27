@@ -3,6 +3,7 @@ package com.swagoverflow.androidclient.api;
 import com.squareup.okhttp.Response;
 import com.swagoverflow.androidclient.api.requests.PostFavoriteShowRequest;
 import com.swagoverflow.androidclient.api.requests.PostFavoriteTeamRequest;
+import com.swagoverflow.androidclient.api.responses.GetEventsForUserResponse;
 import com.swagoverflow.androidclient.api.responses.GetShowResponse;
 import com.swagoverflow.androidclient.api.responses.GetShowsResponse;
 import com.swagoverflow.androidclient.api.responses.GetTeamResponse;
@@ -47,4 +48,7 @@ public interface RestApi {
 
     @DELETE("/user/{user_id}/shows/{show_id}/")
     void deleteFavoriteShow(@Path("user_id") long userId, @Path("show_id") long showId, Callback<Response> response);
+
+    @GET("/user/{user_id}/events/")
+    void getEvents(@Path("user_id") long userId, Callback<GetEventsForUserResponse> response);
 }

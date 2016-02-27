@@ -12,10 +12,15 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.swagoverflow.androidclient.R;
+import com.swagoverflow.androidclient.SwagApplication;
+import com.swagoverflow.androidclient.api.IApiCaller;
+import com.swagoverflow.androidclient.api.requests.DeleteFavoriteShowRequest;
+import com.swagoverflow.androidclient.api.requests.DeleteFavoriteTeamRequest;
 import com.swagoverflow.androidclient.models.Show;
 import com.swagoverflow.androidclient.models.ShowFavorite;
 import com.swagoverflow.androidclient.models.Team;
 import com.swagoverflow.androidclient.models.TeamFavorite;
+import com.swagoverflow.androidclient.models.User;
 import com.swagoverflow.androidclient.utilities.Utility;
 
 import java.util.List;
@@ -28,11 +33,13 @@ public class PreferenceListAdapter extends BaseAdapter implements StickyListHead
     private List<ShowFavorite> shows;
     private Activity activity;
     private String[] mSections;
+    private IApiCaller apiCaller;
 
-    public PreferenceListAdapter(Activity activity, List<TeamFavorite> teams, List<ShowFavorite> shows) {
+    public PreferenceListAdapter(Activity activity, List<TeamFavorite> teams, List<ShowFavorite> shows, IApiCaller apiCaller) {
         this.teams = teams;
         this.shows = shows;
         this.activity = activity;
+        this.apiCaller = apiCaller;
 
         mSections = new String[] { "Teams", "Shows" };
     }
@@ -66,24 +73,26 @@ public class PreferenceListAdapter extends BaseAdapter implements StickyListHead
         TextView name = (TextView) view.findViewById(R.id.name);
         ImageView delete = (ImageView) view.findViewById(R.id.delete);
 
+        final User user = ((SwagApplication) activity.getApplication()).getUser();
+
         if (position < teams.size()) {
-            Team team = teams.get(position).getTeam();
+            final Team team = teams.get(position).getTeam();
             Picasso.with(activity).load(team.getImageUrl()).into(logo);
             name.setText(team.getName());
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i("AS", "delete clicked");
+                    apiCaller.obtainData(new DeleteFavoriteTeamRequest(user.getId(), team.getId()));
                 }
             });
         } else if (position < teams.size() + shows.size()) {
-            Show show = shows.get(position - teams.size()).getShow();
+            final Show show = shows.get(position - teams.size()).getShow();
             Picasso.with(activity).load(show.getImageUrl()).into(logo);
             name.setText(show.getName());
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i("AS", "delete clicked");
+                    apiCaller.obtainData(new DeleteFavoriteShowRequest(user.getId(), show.getId()));
                 }
             });
         } else {

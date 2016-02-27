@@ -32,4 +32,5 @@
         <item>MLB</item>
     </string-array>
     <string name="title_activity_view_favorite">ViewFavoriteActivity</string>
+    <string name="title_activity_watch_content">WatchContentActivity</string>
 </resources>

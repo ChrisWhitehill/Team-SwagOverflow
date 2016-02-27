@@ -7,25 +7,29 @@ import java.util.Date;
  */
 public class Game {
     private Date date;
-    private String channel;
-    private String videoUrl;
-    private String thumbnailUrl;
-    private Team homeTeam;
-    private Team awayTeam;
+    private String channel_number;
+    private String video_url;
+    private String thumbnail_url;
+    private Team home_team;
+    private Team away_team;
 
     public Date getDate() {
         return date;
     }
 
     public String getChannel() {
-        return channel;
+        return channel_number;
     }
 
     public String getVideoUrl() {
-        return videoUrl;
+        return video_url;
     }
 
     public String getThumbnailUrl() {
-        return thumbnailUrl;
+        return thumbnail_url;
+    }
+
+    public String getDescription() {
+        return home_team.getName() + " vs. " + away_team.getName();
     }
 }

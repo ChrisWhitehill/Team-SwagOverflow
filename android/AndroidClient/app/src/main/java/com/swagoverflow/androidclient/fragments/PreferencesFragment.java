@@ -18,6 +18,7 @@ import com.swagoverflow.androidclient.api.ApiCallerProvider;
 import com.swagoverflow.androidclient.api.IApiCaller;
 import com.swagoverflow.androidclient.api.requests.ObtainFavoritesRequest;
 import com.swagoverflow.androidclient.api.responses.ObtainFavoritesResult;
+import com.swagoverflow.androidclient.api.responses.ShowDeletedResponse;
 import com.swagoverflow.androidclient.models.ShowFavorite;
 import com.swagoverflow.androidclient.models.TeamFavorite;
 import com.swagoverflow.androidclient.models.User;
@@ -65,9 +66,15 @@ public class PreferencesFragment extends Fragment {
     }
 
     @Subscribe
+    public void onDeleted(ShowDeletedResponse response) {
+        User user = ((SwagApplication) getActivity().getApplication()).getUser();
+        apiCaller.obtainData(new ObtainFavoritesRequest(user.getId()));
+    }
+
+    @Subscribe
     public void onFavoritesObtained(ObtainFavoritesResult result) {
         StickyListHeadersListView listView = (StickyListHeadersListView) getView().findViewById(R.id.preference_list);
-        adapter = new PreferenceListAdapter(getActivity(), result.getTeams(), result.getShows());
+        adapter = new PreferenceListAdapter(getActivity(), result.getTeams(), result.getShows(), apiCaller);
         listView.setAdapter(adapter);
 
         User user = ((SwagApplication) getActivity().getApplication()).getUser();
@@ -75,28 +82,5 @@ public class PreferencesFragment extends Fragment {
         user.setFavoriteTeams(result.getTeams());
         teamsCount = result.getTeams().size();
         showsCount = result.getShows().size();
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(getActivity(), ViewFavoriteActivity.class);
-
-                if (position < teamsCount) {
-                    TeamFavorite team = (TeamFavorite) adapter.getItem(position);
-                    intent.putExtra(Constants.IS_TEAM, true);
-                    intent.putExtra(Constants.NAME, team.getTeam().getName());
-                    intent.putExtra(Constants.ID, team.getTeam().getId());
-                    intent.putExtra(Constants.NOTIFICATIONS, team.isNotifications());
-                } else if (position < teamsCount + showsCount) {
-                    ShowFavorite show = (ShowFavorite) adapter.getItem(position);
-                    intent.putExtra(Constants.IS_TEAM, false);
-                    intent.putExtra(Constants.NAME, show.getShow().getName());
-                    intent.putExtra(Constants.ID, show.getShow().getId());
-                    intent.putExtra(Constants.NOTIFICATIONS, show.isNotifications());
-                }
-
-                startActivity(intent);
-            }
-        });
     }
 }
