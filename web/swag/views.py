@@ -43,7 +43,7 @@ class TeamViewSet(ModelViewSet):
     renderer_classes = [WrappedJSONRenderer]
 
 
-class ShowViewSet(ViewSet):
+class ShowViewSet(ModelViewSet):
     queryset = Show.objects.all()
     serializer_class = ShowSerializer
     renderer_classes = [WrappedJSONRenderer]
@@ -54,11 +54,21 @@ class FavoriteTeamViewSet(ModelViewSet):
     serializer_class = FavoriteTeamSerializer
     renderer_classes = [WrappedJSONRenderer]
 
+    def list(self, request, user_pk=None):
+        queryset = FavoriteTeam.objects.filter(user=user_pk)
+        serializer = FavoriteTeamSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class FavoriteShowViewSet(ModelViewSet):
     queryset = FavoriteShow.objects.all()
     serializer_class = FavoriteShowSerializer
     renderer_classes = [WrappedJSONRenderer]
+
+    def list(self, request, user_pk=None):
+        queryset = FavoriteShow.objects.filter(user=user_pk)
+        serializer = FavoriteShowSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class GameViewSet(ModelViewSet):
