@@ -14,6 +14,13 @@ def league_list(request):
     return Response({"leagues": data})
 
 
+@api_view(['GET'])
+def league_teams(request, key=None):
+    queryset = Team.objects.filter(league=key.upper())
+    serializer = TeamSerializer(queryset, many=True)
+    return Response({'teams': serializer.data})
+
+
 class UserViewSet(ViewSet):
 
     def list(self, request):
