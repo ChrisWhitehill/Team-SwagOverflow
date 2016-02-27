@@ -39,7 +39,6 @@ public class AddFavoriteTeamFragment extends Fragment {
     private List<Team> filteredTeams;
     private IApiCaller apiCaller;
     private long userId;
-    private long teamId;
     private boolean shouldDelete;
 
     public AddFavoriteTeamFragment() {
@@ -84,7 +83,6 @@ public class AddFavoriteTeamFragment extends Fragment {
                 Team team = filteredTeams.get(i);
                 User user = ((SwagApplication) getActivity().getApplication()).getUser();
                 userId = user.getId();
-                teamId = team.getId();
                 apiCaller.obtainData(new PostFavoriteTeamRequest(team.getId(), user.getId()));
                 CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
                 Snackbar.make(layout, "Favorite team added", Snackbar.LENGTH_SHORT)
@@ -104,7 +102,7 @@ public class AddFavoriteTeamFragment extends Fragment {
         ((SwagApplication) getActivity().getApplication()).getUser().addFavoriteTeam(response.getFavoriteteams());
 
         if (shouldDelete) {
-            apiCaller.obtainData(new DeleteFavoriteTeamRequest(teamId, userId));
+            apiCaller.obtainData(new DeleteFavoriteTeamRequest(userId, response.getFavoriteteams().getId()));
             CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
             Snackbar.make(layout, "Successfully deleted team", Snackbar.LENGTH_SHORT)
                     .show();
@@ -151,7 +149,7 @@ public class AddFavoriteTeamFragment extends Fragment {
             for (Team t : teams) {
                 hasTeam = false;
                 for (TeamFavorite f : teamFavorites) {
-                    if (f.getTeam().getName().equals(t.getName())) {
+                    if (f != null && f.getTeam().getName().equals(t.getName())) {
                         hasTeam = true;
                         break;
                     }
@@ -165,7 +163,7 @@ public class AddFavoriteTeamFragment extends Fragment {
             for (Team t : teams) {
                 hasTeam = false;
                 for (TeamFavorite f : teamFavorites) {
-                    if (f.getTeam().getName().equals(t.getName())) {
+                    if (f != null && f.getTeam().getName().equals(t.getName())) {
                         hasTeam = true;
                         break;
                     }

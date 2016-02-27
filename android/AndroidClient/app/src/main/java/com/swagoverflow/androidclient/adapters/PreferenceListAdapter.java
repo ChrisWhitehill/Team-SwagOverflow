@@ -66,7 +66,7 @@ public class PreferenceListAdapter extends BaseAdapter implements StickyListHead
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(activity).inflate(R.layout.layout_preference_item, parent, false);
 
         ImageView logo = (ImageView) view.findViewById(R.id.logo);
@@ -82,7 +82,7 @@ public class PreferenceListAdapter extends BaseAdapter implements StickyListHead
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    apiCaller.obtainData(new DeleteFavoriteTeamRequest(user.getId(), team.getId()));
+                    apiCaller.obtainData(new DeleteFavoriteTeamRequest(user.getId(), teams.get(position).getId()));
                 }
             });
         } else if (position < teams.size() + shows.size()) {
@@ -92,7 +92,7 @@ public class PreferenceListAdapter extends BaseAdapter implements StickyListHead
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    apiCaller.obtainData(new DeleteFavoriteShowRequest(user.getId(), show.getId()));
+                    apiCaller.obtainData(new DeleteFavoriteShowRequest(user.getId(), shows.get(position  - teams.size()).getId()));
                 }
             });
         } else {

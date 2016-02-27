@@ -44,7 +44,6 @@ public class AddFavoriteShowFragment extends Fragment {
     private FilterShowsTask task;
     private boolean shouldDelete;
     private long userId;
-    private long showId;
 
     public AddFavoriteShowFragment() {
         // Required empty public constructor
@@ -96,7 +95,6 @@ public class AddFavoriteShowFragment extends Fragment {
                 Show show = filteredShows.get(i);
                 User user = ((SwagApplication) getActivity().getApplication()).getUser();
                 userId = user.getId();
-                showId = show.getId();
                 apiCaller.obtainData(new PostFavoriteShowRequest(show.getId(), user.getId()));
                 CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
                 Snackbar.make(layout, "Favorite show added", Snackbar.LENGTH_SHORT)
@@ -115,7 +113,7 @@ public class AddFavoriteShowFragment extends Fragment {
     public void onPosted(ShowPostedResponse response) {
         ((SwagApplication) getActivity().getApplication()).getUser().addFavoriteShow(response.getFavoriteshows());
         if (shouldDelete) {
-            apiCaller.obtainData(new DeleteFavoriteShowRequest(userId, showId));
+            apiCaller.obtainData(new DeleteFavoriteShowRequest(userId, response.getFavoriteshows().getId()));
             CoordinatorLayout layout = (CoordinatorLayout) getActivity().findViewById(R.id.main_content);
             Snackbar.make(layout, "Successfully deleted show", Snackbar.LENGTH_SHORT)
                     .show();
@@ -178,12 +176,16 @@ public class AddFavoriteShowFragment extends Fragment {
 
             if (!text.equals("")) {
                 for (Show s : shows) {
+                    if (isCancelled())
+                        break;
                     hasShow = false;
                     for (ShowFavorite f : showFavorites) {
-                        if (f.getShow().getName().equals(s.getName())) {
+                        if (f != null && f.getShow().getName().equals(s.getName())) {
                             hasShow = true;
                             break;
                         }
+                        if (isCancelled())
+                            break;
                     }
 
                     if (!hasShow && s.getName().toLowerCase().contains(text)){
@@ -194,7 +196,7 @@ public class AddFavoriteShowFragment extends Fragment {
                 for (Show s : shows) {
                     hasShow = false;
                     for (ShowFavorite f : showFavorites) {
-                        if (f.getShow().getName().equals(s.getName())) {
+                        if (f != null && f.getShow().getName().equals(s.getName())) {
                             hasShow = true;
                             break;
                         }

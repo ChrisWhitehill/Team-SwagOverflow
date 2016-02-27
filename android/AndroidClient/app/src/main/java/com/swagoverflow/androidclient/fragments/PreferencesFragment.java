@@ -1,26 +1,20 @@
 package com.swagoverflow.androidclient.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import com.squareup.otto.Subscribe;
-import com.swagoverflow.androidclient.Constants;
 import com.swagoverflow.androidclient.R;
 import com.swagoverflow.androidclient.SwagApplication;
-import com.swagoverflow.androidclient.ViewFavoriteActivity;
 import com.swagoverflow.androidclient.adapters.PreferenceListAdapter;
 import com.swagoverflow.androidclient.api.ApiCallerProvider;
 import com.swagoverflow.androidclient.api.IApiCaller;
 import com.swagoverflow.androidclient.api.requests.ObtainFavoritesRequest;
 import com.swagoverflow.androidclient.api.responses.ObtainFavoritesResult;
 import com.swagoverflow.androidclient.api.responses.ShowDeletedResponse;
-import com.swagoverflow.androidclient.models.ShowFavorite;
-import com.swagoverflow.androidclient.models.TeamFavorite;
 import com.swagoverflow.androidclient.models.User;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
@@ -63,6 +57,8 @@ public class PreferencesFragment extends Fragment {
     public void onResume() {
         super.onResume();
         apiCaller.registerObject(this);
+        User user = ((SwagApplication) getActivity().getApplication()).getUser();
+        apiCaller.obtainData(new ObtainFavoritesRequest(user.getId()));
     }
 
     @Subscribe

@@ -13,7 +13,9 @@ import com.squareup.picasso.Picasso;
 import com.swagoverflow.androidclient.R;
 import com.swagoverflow.androidclient.models.Episode;
 import com.swagoverflow.androidclient.models.Game;
+import com.swagoverflow.androidclient.utilities.Utility;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
@@ -67,7 +69,7 @@ public class EventListAdapter extends BaseAdapter implements StickyListHeadersAd
 
     @Override
     public int getCount() {
-        return games.size() + episodes.size();
+        return games.size() + episodes.size() + 1;
     }
 
     @Override
@@ -95,18 +97,22 @@ public class EventListAdapter extends BaseAdapter implements StickyListHeadersAd
         TextView date = (TextView) view.findViewById(R.id.date);
         TextView channel = (TextView) view.findViewById(R.id.channel);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM d 'at' h:mm a");
+
         if (position < games.size()) {
             Game game = games.get(position);
             Picasso.with(context).load(game.getThumbnailUrl()).into(thumbnail);
             name.setText(game.getDescription());
-            date.setText(game.getDate().toString());
+            date.setText(sdf.format(game.getDate()));
             channel.setText(game.getChannel());
         } else if (position < games.size() + episodes.size()) {
             Episode episode = episodes.get(position - games.size());
             Picasso.with(context).load(episode.getThumbnailUrl()).into(thumbnail);
             name.setText(episode.getShow().getName());
-            date.setText(episode.getDate().toString());
+            date.setText(sdf.format(episode.getDate()));
             channel.setText(episode.getChannel());
+        } else {
+            view.setMinimumHeight(Utility.convertDpToPx(context.getWindowManager().getDefaultDisplay(), 10));
         }
 
         return view;

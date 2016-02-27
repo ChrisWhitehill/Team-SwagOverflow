@@ -85,7 +85,8 @@ public class EventsFragment extends Fragment {
                     intent.putExtra(Constants.URI, episode.getVideoUrl());
                 }
 
-                startActivity(intent);
+                if (i < games.size() + episodes.size())
+                    startActivity(intent);
             }
         });
     }

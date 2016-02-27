@@ -7,8 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:maxHeight="40dp"
-        android:maxWidth="40dp"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:id="@+id/thumbnail"
@@ -22,6 +22,8 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/thumbnail"
         android:layout_toLeftOf="@+id/channel"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_gravity="center_horizontal">
 
         <TextView
@@ -33,6 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/date" />
     </LinearLayout>
