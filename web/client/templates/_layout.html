@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} | Swag</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+</head>
+<body>
+    {% block styles %}{% endblock %}
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">SwagOverflow</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block container %}{% endblock %}
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

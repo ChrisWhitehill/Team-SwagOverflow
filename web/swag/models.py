@@ -60,7 +60,7 @@ class Event(models.Model):
         abstract = True
 
 
-class TeamEvent(Event):
+class Game(Event):
     away_team = models.ForeignKey(Team, related_name='away_games')
     home_team = models.ForeignKey(Team, related_name='home_games')
 
@@ -68,7 +68,7 @@ class TeamEvent(Event):
         return '{0} vs. {1}'.format(self.away_team, self.home_team)
 
 
-class ShowEvent(Event):
+class Episode(Event):
     show = models.ForeignKey(Show, related_name='events')
 
     def __str__(self):

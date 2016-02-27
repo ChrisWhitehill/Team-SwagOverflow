@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_generators',
     'django_extensions',
-    'swag'
+    'swag',
+    'client',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -231,29 +231,29 @@ class FavoriteShowViewSet(ViewSet):
         return Response(status=204)
 
 
-class TeamEventViewSet(ViewSet):
+class GameViewSet(ViewSet):
 
     def list(self, request):
-        queryset = TeamEvent.objects.all()
-        serializer = TeamEventSerializer(queryset, many=True)
+        queryset = Game.objects.all()
+        serializer = GameSerializer(queryset, many=True)
         return Response({'teamevents': serializer.data})
 
     def retrieve(self, request, pk=None):
-        queryset = TeamEvent.objects.all()
+        queryset = Game.objects.all()
         item = get_object_or_404(queryset, pk=pk)
-        serializer = TeamEventSerializer(item)
+        serializer = GameSerializer(item)
         return Response({'teamevent': serializer.data})
 
 
-class ShowEventViewSet(ViewSet):
+class EpisodeViewSet(ViewSet):
 
     def list(self, request):
-        queryset = ShowEvent.objects.all()
-        serializer = ShowEventSerializer(queryset, many=True)
+        queryset = Episode.objects.all()
+        serializer = EpisodeSerializer(queryset, many=True)
         return Response({'showevents': serializer.data})
 
     def retrieve(self, request, pk=None):
-        queryset = ShowEvent.objects.all()
+        queryset = Episode.objects.all()
         item = get_object_or_404(queryset, pk=pk)
-        serializer = ShowEventSerializer(item)
+        serializer = EpisodeSerializer(item)
         return Response({'showevent': serializer.data})
