@@ -55,6 +55,8 @@ class Event(models.Model):
     date = models.DateTimeField()
     channel_name = models.CharField(max_length=32)
     channel_number = models.IntegerField()
+    thumbnail_url = models.CharField(max_length=256, default='')
+    video_url = models.CharField(max_length=256, default='')
 
     class Meta:
         abstract = True
