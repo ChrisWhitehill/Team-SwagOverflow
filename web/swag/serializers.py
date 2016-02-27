@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from swag.models import User, Team, Show, FavoriteTeam, FavoriteShow, TeamEvent, ShowEvent
+from swag.models import *
 
 
 class UserSerializer(ModelSerializer):
@@ -24,12 +24,14 @@ class FavoriteTeamSerializer(ModelSerializer):
 
     class Meta:
         model = FavoriteTeam
+        depth = 2
 
 
 class FavoriteShowSerializer(ModelSerializer):
 
     class Meta:
         model = FavoriteShow
+        depth = 2
 
 
 class TeamEventSerializer(ModelSerializer):
