@@ -172,4 +172,10 @@ extension EventsViewController: UITableViewDelegate {
             playerViewController.player!.play()
         }
     }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor(red: 0.38, green: 0.38, blue: 0.38, alpha: 1.0)
+        headerView.textLabel?.textColor = UIColor.whiteColor()
+    }
 }

@@ -60,6 +60,9 @@ class PreferencesViewController: UIViewController {
         controller.activeUser = activeUser
         
         let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.barTintColor = UIColor.blackColor()
+        navController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
         presentViewController(navController, animated: true, completion: nil)
     }
     
@@ -69,7 +72,7 @@ class PreferencesViewController: UIViewController {
     }
 }
 
-extension PreferencesViewController: UITableViewDataSource {
+extension PreferencesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -89,14 +92,11 @@ extension PreferencesViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
     }
-}
-
-extension PreferencesViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("PreferenceDetailViewController") as! PreferenceDetailViewController
-        controller.favorite = favoriteForIndexPath(indexPath)
-        navigationController?.pushViewController(controller, animated: true)
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor(red: 0.38, green: 0.38, blue: 0.38, alpha: 1.0)
+        headerView.textLabel?.textColor = UIColor.whiteColor()
     }
 }
 
