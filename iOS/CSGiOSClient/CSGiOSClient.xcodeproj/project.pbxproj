@@ -28,6 +28,7 @@
 		1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */; };
 		1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BC1C81FF2C007A269C /* Favorite.swift */; };
 		1645B5BF1C81FF97007A269C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BE1C81FF97007A269C /* Item.swift */; };
+		1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C01C820439007A269C /* AddFavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDetailViewController.swift; sourceTree = "<group>"; };
 		1645B5BC1C81FF2C007A269C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		1645B5BE1C81FF97007A269C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1645B5C01C820439007A269C /* AddFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				1645B5961C81DD38007A269C /* AccountViewController.swift */,
 				1645B5991C81E43B007A269C /* ViewController+Extensions.swift */,
 				1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */,
+				1645B5C01C820439007A269C /* AddFavoriteViewController.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */,
 				1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */,
+				1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */,
 				1645B5B21C81EB39007A269C /* User.swift in Sources */,
 				1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */,
 				1645B5BF1C81FF97007A269C /* Item.swift in Sources */,

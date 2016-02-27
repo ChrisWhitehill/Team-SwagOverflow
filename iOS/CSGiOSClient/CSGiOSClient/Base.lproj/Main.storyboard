@@ -163,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="1898" y="1196"/>
         </scene>
-        <!--Preferences-->
+        <!--Favorites-->
         <scene sceneID="kl3-lY-tCS">
             <objects>
                 <viewController id="6Yb-6Q-Kel" customClass="PreferencesViewController" customModule="CSGiOSClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -252,7 +252,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Preferences" image="ic_action_fingerprint" id="sQW-Vc-6E0"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="ic_action_fingerprint" id="sQW-Vc-6E0"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -279,7 +279,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRW-Al-4Yd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2835" y="-334"/>
+            <point key="canvasLocation" x="2771" y="-334"/>
+        </scene>
+        <!--Add Favorite View Controller-->
+        <scene sceneID="Yav-yV-vXI">
+            <objects>
+                <viewController storyboardIdentifier="AddFavoriteViewController" id="zbD-hm-AVI" customClass="AddFavoriteViewController" customModule="CSGiOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l90-Y2-vLL"/>
+                        <viewControllerLayoutGuide type="bottom" id="3QF-gF-2f3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="77G-Rc-iUO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beE-79-0q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3532" y="-334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hhr-VC-QHR">

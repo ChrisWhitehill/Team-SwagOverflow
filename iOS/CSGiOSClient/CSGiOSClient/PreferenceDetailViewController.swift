@@ -16,9 +16,5 @@ class PreferenceDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = item.name
-        
-        let backItem = UIBarButtonItem()
-        backItem.title = nil
-        navigationItem.backBarButtonItem = backItem
     }
 }
