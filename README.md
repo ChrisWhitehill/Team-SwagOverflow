@@ -1,4 +1,3 @@
 ### Team SwagOverflow
 
-Accent color:
-#00BFA5
+Accent color: `#00BFA5`
