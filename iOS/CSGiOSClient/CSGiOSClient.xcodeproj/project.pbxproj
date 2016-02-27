@@ -10,7 +10,6 @@
 		1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B55F1C81D8E4007A269C /* AppDelegate.swift */; };
 		1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5611C81D8E4007A269C /* LoginViewController.swift */; };
 		1645B5651C81D8E4007A269C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1645B5631C81D8E4007A269C /* Main.storyboard */; };
-		1645B5681C81D8E4007A269C /* CSGiOSClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5661C81D8E4007A269C /* CSGiOSClient.xcdatamodeld */; };
 		1645B56A1C81D8E4007A269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1645B5691C81D8E4007A269C /* Assets.xcassets */; };
 		1645B56D1C81D8E4007A269C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1645B56B1C81D8E4007A269C /* LaunchScreen.storyboard */; };
 		1645B5781C81D8E5007A269C /* CSGiOSClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5771C81D8E5007A269C /* CSGiOSClientTests.swift */; };
@@ -19,6 +18,17 @@
 		1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5921C81DD23007A269C /* PreferencesViewController.swift */; };
 		1645B5951C81DD2C007A269C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5941C81DD2C007A269C /* EventsViewController.swift */; };
 		1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5961C81DD38007A269C /* AccountViewController.swift */; };
+		1645B59A1C81E43B007A269C /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5991C81E43B007A269C /* ViewController+Extensions.swift */; };
+		1645B5A31C81E906007A269C /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5A21C81E906007A269C /* HttpClient.swift */; };
+		1645B5AC1C81EACB007A269C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5A81C81EACB007A269C /* Team.swift */; };
+		1645B5AE1C81EACB007A269C /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5AA1C81EACB007A269C /* Show.swift */; };
+		1645B5B21C81EB39007A269C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B01C81EB39007A269C /* User.swift */; };
+		1645B5B71C81EE80007A269C /* PreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */; };
+		1645B5B91C81F2F6007A269C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5B81C81F2F6007A269C /* UserService.swift */; };
+		1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */; };
+		1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BC1C81FF2C007A269C /* Favorite.swift */; };
+		1645B5BF1C81FF97007A269C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5BE1C81FF97007A269C /* Item.swift */; };
+		1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645B5C01C820439007A269C /* AddFavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +53,6 @@
 		1645B55F1C81D8E4007A269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1645B5611C81D8E4007A269C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1645B5641C81D8E4007A269C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1645B5671C81D8E4007A269C /* CSGiOSClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CSGiOSClient.xcdatamodel; sourceTree = "<group>"; };
 		1645B5691C81D8E4007A269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1645B56C1C81D8E4007A269C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1645B56E1C81D8E4007A269C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +66,17 @@
 		1645B5921C81DD23007A269C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		1645B5941C81DD2C007A269C /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		1645B5961C81DD38007A269C /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		1645B5991C81E43B007A269C /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		1645B5A21C81E906007A269C /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		1645B5A81C81EACB007A269C /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		1645B5AA1C81EACB007A269C /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		1645B5B01C81EB39007A269C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewCell.swift; sourceTree = "<group>"; };
+		1645B5B81C81F2F6007A269C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDetailViewController.swift; sourceTree = "<group>"; };
+		1645B5BC1C81FF2C007A269C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		1645B5BE1C81FF97007A269C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1645B5C01C820439007A269C /* AddFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +127,10 @@
 		1645B55E1C81D8E4007A269C /* CSGiOSClient */ = {
 			isa = PBXGroup;
 			children = (
-				1645B5611C81D8E4007A269C /* LoginViewController.swift */,
-				1645B5901C81DCD4007A269C /* TabBarController.swift */,
-				1645B5921C81DD23007A269C /* PreferencesViewController.swift */,
-				1645B5941C81DD2C007A269C /* EventsViewController.swift */,
-				1645B5961C81DD38007A269C /* AccountViewController.swift */,
-				1645B5631C81D8E4007A269C /* Main.storyboard */,
-				1645B5691C81D8E4007A269C /* Assets.xcassets */,
-				1645B55F1C81D8E4007A269C /* AppDelegate.swift */,
-				1645B56B1C81D8E4007A269C /* LaunchScreen.storyboard */,
-				1645B56E1C81D8E4007A269C /* Info.plist */,
-				1645B5661C81D8E4007A269C /* CSGiOSClient.xcdatamodeld */,
+				1645B59B1C81E7E0007A269C /* Classes */,
+				1645B59C1C81E7EC007A269C /* Models */,
+				1645B5A01C81E8C2007A269C /* HttpClient */,
+				1645B59D1C81E7F7007A269C /* Resources */,
 			);
 			path = CSGiOSClient;
 			sourceTree = "<group>";
@@ -138,6 +151,55 @@
 				1645B5841C81D8E5007A269C /* Info.plist */,
 			);
 			path = CSGiOSClientUITests;
+			sourceTree = "<group>";
+		};
+		1645B59B1C81E7E0007A269C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1645B5611C81D8E4007A269C /* LoginViewController.swift */,
+				1645B5901C81DCD4007A269C /* TabBarController.swift */,
+				1645B5921C81DD23007A269C /* PreferencesViewController.swift */,
+				1645B5B61C81EE80007A269C /* PreferenceTableViewCell.swift */,
+				1645B5941C81DD2C007A269C /* EventsViewController.swift */,
+				1645B5961C81DD38007A269C /* AccountViewController.swift */,
+				1645B5991C81E43B007A269C /* ViewController+Extensions.swift */,
+				1645B5BA1C81FEF7007A269C /* PreferenceDetailViewController.swift */,
+				1645B5C01C820439007A269C /* AddFavoriteViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1645B59C1C81E7EC007A269C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1645B5B01C81EB39007A269C /* User.swift */,
+				1645B5BE1C81FF97007A269C /* Item.swift */,
+				1645B5A81C81EACB007A269C /* Team.swift */,
+				1645B5AA1C81EACB007A269C /* Show.swift */,
+				1645B5BC1C81FF2C007A269C /* Favorite.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1645B59D1C81E7F7007A269C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1645B55F1C81D8E4007A269C /* AppDelegate.swift */,
+				1645B5631C81D8E4007A269C /* Main.storyboard */,
+				1645B5691C81D8E4007A269C /* Assets.xcassets */,
+				1645B56B1C81D8E4007A269C /* LaunchScreen.storyboard */,
+				1645B56E1C81D8E4007A269C /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1645B5A01C81E8C2007A269C /* HttpClient */ = {
+			isa = PBXGroup;
+			children = (
+				1645B5B81C81F2F6007A269C /* UserService.swift */,
+				1645B5A21C81E906007A269C /* HttpClient.swift */,
+			);
+			name = HttpClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,12 +333,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1645B5BD1C81FF2C007A269C /* Favorite.swift in Sources */,
 				1645B5931C81DD23007A269C /* PreferencesViewController.swift in Sources */,
-				1645B5681C81D8E4007A269C /* CSGiOSClient.xcdatamodeld in Sources */,
+				1645B5C11C820439007A269C /* AddFavoriteViewController.swift in Sources */,
+				1645B5B21C81EB39007A269C /* User.swift in Sources */,
+				1645B5BB1C81FEF7007A269C /* PreferenceDetailViewController.swift in Sources */,
+				1645B5BF1C81FF97007A269C /* Item.swift in Sources */,
 				1645B5971C81DD38007A269C /* AccountViewController.swift in Sources */,
+				1645B5AE1C81EACB007A269C /* Show.swift in Sources */,
 				1645B5911C81DCD4007A269C /* TabBarController.swift in Sources */,
+				1645B5A31C81E906007A269C /* HttpClient.swift in Sources */,
+				1645B5B91C81F2F6007A269C /* UserService.swift in Sources */,
+				1645B59A1C81E43B007A269C /* ViewController+Extensions.swift in Sources */,
+				1645B5AC1C81EACB007A269C /* Team.swift in Sources */,
 				1645B5621C81D8E4007A269C /* LoginViewController.swift in Sources */,
 				1645B5601C81D8E4007A269C /* AppDelegate.swift in Sources */,
+				1645B5B71C81EE80007A269C /* PreferenceTableViewCell.swift in Sources */,
 				1645B5951C81DD2C007A269C /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +576,7 @@
 				1645B5891C81D8E5007A269C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1645B58A1C81D8E5007A269C /* Build configuration list for PBXNativeTarget "CSGiOSClientTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +585,7 @@
 				1645B58C1C81D8E5007A269C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1645B58D1C81D8E5007A269C /* Build configuration list for PBXNativeTarget "CSGiOSClientUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,21 +594,9 @@
 				1645B58F1C81D8E5007A269C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		1645B5661C81D8E4007A269C /* CSGiOSClient.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1645B5671C81D8E4007A269C /* CSGiOSClient.xcdatamodel */,
-			);
-			currentVersion = 1645B5671C81D8E4007A269C /* CSGiOSClient.xcdatamodel */;
-			path = CSGiOSClient.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1645B5541C81D8E4007A269C /* Project object */;
 }
