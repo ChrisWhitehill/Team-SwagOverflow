@@ -10,12 +10,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var coreDataStack: CoreDataStack!
+    var appeared = false
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+        if appeared {
+            return
+        }
+        
+        appeared = true
+        
+        if let _ = UserService().getActiveUser() {
+            self.performSegueWithIdentifier("loginSegue", sender: self)
+        }
     }
 }
 

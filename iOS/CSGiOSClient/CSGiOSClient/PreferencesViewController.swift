@@ -14,10 +14,6 @@ class PreferencesViewController: UIViewController {
     
     let sectionTitles = ["Teams", "TV Shows"]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -46,6 +42,22 @@ extension PreferencesViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! PreferenceTableViewCell
+        
+        if indexPath.section == 0 {
+            let team = Team()
+            team.name = "Arizona Coyotes"
+            team.logo_url = "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Arizona_Coyotes.svg/200px-Arizona_Coyotes.svg.png"
+            
+            cell.displayForTeam(team)
+        } else {
+            let show = Show()
+            show.name = "Criminal Minds"
+            show.logo_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Criminal-Minds.svg/250px-Criminal-Minds.svg.png"
+            
+            cell.displayForShow(show)
+        }
+        
+        return cell
     }
 }

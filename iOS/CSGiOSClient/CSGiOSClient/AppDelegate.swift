@@ -13,14 +13,9 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let coreDataStack = CoreDataStack()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let loginVC = self.window!.rootViewController as! LoginViewController
-        loginVC.coreDataStack = coreDataStack
-        
         return true
     }
 
@@ -45,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.coreDataStack.saveContext(self.coreDataStack.mainContext)
     }
 }
 

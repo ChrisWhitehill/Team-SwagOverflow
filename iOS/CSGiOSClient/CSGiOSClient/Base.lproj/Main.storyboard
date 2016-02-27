@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -45,7 +47,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L7r-IG-HkX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="x6g-Zr-s9m">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -64,7 +66,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sdD-Dg-GnS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pOE-FS-oTq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -83,13 +85,68 @@
                         <viewControllerLayoutGuide type="bottom" id="yZW-PP-02L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I2f-Rg-FAB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GW4-ct-5Do">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellID" id="gXE-Qn-abO" customClass="PreferenceTableViewCell" customModule="CSGiOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gXE-Qn-abO" id="Xv0-Zx-XY9">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0IM-Q5-dvU">
+                                                    <rect key="frame" x="10" y="10" width="79" height="79"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="0IM-Q5-dvU" secondAttribute="height" multiplier="1:1" id="gUF-C0-34d"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-2Z-pmI">
+                                                    <rect key="frame" x="114" y="38" width="53" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3cq-2Z-pmI" firstAttribute="leading" secondItem="0IM-Q5-dvU" secondAttribute="trailing" constant="25" id="D5R-St-Kke"/>
+                                                <constraint firstItem="0IM-Q5-dvU" firstAttribute="leading" secondItem="Xv0-Zx-XY9" secondAttribute="leading" constant="10" id="QbH-KT-MNH"/>
+                                                <constraint firstItem="3cq-2Z-pmI" firstAttribute="centerY" secondItem="Xv0-Zx-XY9" secondAttribute="centerY" id="dEE-YM-lym"/>
+                                                <constraint firstAttribute="bottom" secondItem="0IM-Q5-dvU" secondAttribute="bottom" constant="10" id="hf3-AQ-No6"/>
+                                                <constraint firstItem="0IM-Q5-dvU" firstAttribute="top" secondItem="Xv0-Zx-XY9" secondAttribute="top" constant="10" id="ray-IJ-phd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="img" destination="0IM-Q5-dvU" id="Z7u-AC-GIB"/>
+                                            <outlet property="nameLabel" destination="3cq-2Z-pmI" id="Ysm-N4-QCh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Yb-6Q-Kel" id="p3I-i0-2u1"/>
+                                    <outlet property="delegate" destination="6Yb-6Q-Kel" id="9ew-gr-9fa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GW4-ct-5Do" firstAttribute="leading" secondItem="I2f-Rg-FAB" secondAttribute="leading" id="0wP-Hn-fQn"/>
+                            <constraint firstItem="GW4-ct-5Do" firstAttribute="top" secondItem="I2f-Rg-FAB" secondAttribute="topMargin" id="lvD-fw-CnA"/>
+                            <constraint firstItem="yZW-PP-02L" firstAttribute="top" secondItem="GW4-ct-5Do" secondAttribute="bottom" id="ne9-ov-Hqb"/>
+                            <constraint firstAttribute="trailing" secondItem="GW4-ct-5Do" secondAttribute="trailing" id="rdQ-Jy-dNQ"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Preferences" image="ic_action_fingerprint" id="sQW-Vc-6E0"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="GW4-ct-5Do" id="A8G-DH-mG9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy1-wp-nFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +156,7 @@
         <scene sceneID="hhr-VC-QHR">
             <objects>
                 <navigationController id="uQa-hf-Bai" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gyu-DD-Y3a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Gyu-DD-Y3a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -125,7 +182,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6QT-fJ-zvx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="6Yb-6Q-Kel" kind="relationship" relationship="viewControllers" id="RYm-gZ-fUn"/>
