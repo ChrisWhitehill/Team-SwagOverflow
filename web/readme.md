@@ -17,6 +17,7 @@ These are the current available URLs. Detail views accept `GET`, `POST`, `PUT`, 
 /api/team/<team_pk>/games/<pk>/     swag.views.GameViewSet          team-games-detail
 /api/user/                          swag.views.UserViewSet          users-list
 /api/user/<pk>/                     swag.views.UserViewSet          users-detail
+/api/user/<user_pk>/events          rest_framework.decorators.user_events
 /api/user/<user_pk>/favorites       rest_framework.decorators.user_favorites
 /api/user/<user_pk>/shows/          swag.views.FavoriteShowViewSet  user-shows-list 
 /api/user/<user_pk>/shows/<pk>/     swag.views.FavoriteShowViewSet  user-shows-detail
